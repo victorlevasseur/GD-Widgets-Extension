@@ -6,7 +6,17 @@
 #include <SFML/Window/Mouse.hpp>
 
 
-TextBox::TextBox() : WCore::Widget(), m_backgroundShape(), m_string(""), m_text(), m_padding(0), m_selectionBegin(0), m_selectionEnd(0), m_isCursorVisible(true), m_cursorShape()
+TextBox::TextBox() :
+    WCore::Widget(),
+    m_backgroundShape(),
+    m_string(""),
+    m_text(),
+    m_padding(0),
+    m_selectionBegin(0),
+    m_selectionEnd(0),
+    m_allowTextSelection(true),
+    m_isCursorVisible(true),
+    m_cursorShape()
 {
     m_dragSelection.isDragging = false;
     m_dragSelection.first = 0;
@@ -175,6 +185,26 @@ unsigned int TextBox::GetCharacterSize() const
     return m_text.getCharacterSize();
 }
 
+void TextBox::SetBorderThickness(int thickness)
+{
+    m_backgroundShape.setOutlineThickness(thickness);
+}
+
+int TextBox::GetBorderThickness() const
+{
+    return m_backgroundShape.getOutlineThickness();
+}
+
+void TextBox::AllowTextSelection(bool allow)
+{
+    m_allowTextSelection = allow;
+}
+
+bool TextBox::IsAllowingTextSelection() const
+{
+    return m_allowTextSelection;
+}
+
 void TextBox::HandleKeyboardEvent(sf::Keyboard::Key button, bool pressed)
 {
     if(!m_focus || !m_enabled)
@@ -277,8 +307,15 @@ void TextBox::HandleMouseButtonEvent(sf::Mouse::Button button, bool pressed, int
 
         if(m_focus)
         {
-            m_dragSelection.isDragging = true;
-            m_dragSelection.first = m_dragSelection.second = GetCharacterOnPoint(mousePos);
+            if(m_allowTextSelection)
+            {
+                m_dragSelection.isDragging = true;
+                m_dragSelection.first = m_dragSelection.second = GetCharacterOnPoint(mousePos);
+            }
+            else
+            {
+                Select(GetCharacterOnPoint(mousePos));
+            }
         }
     }
     else

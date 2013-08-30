@@ -77,6 +77,25 @@ void TextBoxObject::DoLoadFromXml(gd::Project & project, const TiXmlElement * el
         SetCharacterSize(value);
     }
 
+    if (elem->FirstChildElement("BorderThickness"))
+    {
+        int value = 1;
+        elem->FirstChildElement("BorderThickness")->QueryIntAttribute("value", &value);
+
+        SetBorderThickness(value);
+    }
+
+    if ( elem->FirstChildElement("AllowTextSelection") && elem->FirstChildElement("AllowTextSelection")->Attribute("value") )
+    {
+        std::cout << elem->FirstChildElement("AllowTextSelection")->Attribute("value") << std::endl;
+
+        if(std::string(elem->FirstChildElement("AllowTextSelection")->Attribute("value")) == "true")
+            AllowTextSelection(true);
+        else
+            AllowTextSelection(false);
+    }
+
+
     if(elem->FirstChildElement("Palette"))
     {
         SetWidgetPalette(WCore::LoadPaletteFromXml(elem->FirstChildElement("Palette")));
@@ -101,6 +120,26 @@ unsigned int TextBoxObject::GetCharacterSize() const
 void TextBoxObject::SetCharacterSize(unsigned int _size)
 {
     m_textBox.SetCharacterSize(_size);
+}
+
+void TextBoxObject::SetBorderThickness(int thickness)
+{
+    m_textBox.SetBorderThickness(thickness);
+}
+
+int TextBoxObject::GetBorderThickness() const
+{
+    return m_textBox.GetBorderThickness();
+}
+
+void TextBoxObject::AllowTextSelection(bool allow)
+{
+    m_textBox.AllowTextSelection(allow);
+}
+
+bool TextBoxObject::IsAllowingTextSelection() const
+{
+    return m_textBox.IsAllowingTextSelection();
 }
 
 const WCore::Palette& TextBoxObject::GetWidgetPalette() const
@@ -160,6 +199,14 @@ void TextBoxObject::DoSaveToXml(TiXmlElement * elem)
     TiXmlElement * charSizeElem = new TiXmlElement( "CharacterSize" );
     elem->LinkEndChild( charSizeElem );
     charSizeElem->SetAttribute("value", GetCharacterSize());
+
+    TiXmlElement * borderElem = new TiXmlElement( "BorderThickness" );
+    elem->LinkEndChild( borderElem );
+    borderElem->SetAttribute("value", GetBorderThickness());
+
+    TiXmlElement * txtSelElem = new TiXmlElement( "AllowTextSelection" );
+    elem->LinkEndChild( txtSelElem );
+    txtSelElem->SetAttribute("value", IsAllowingTextSelection() ? "true" : "false");
 
     TiXmlElement * paletteElem = new TiXmlElement( "Palette" );
     elem->LinkEndChild( paletteElem );

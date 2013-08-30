@@ -36,6 +36,7 @@ freely, subject to the following restrictions:
 #include <wx/filename.h>
 #include <wx/filedlg.h>
 
+#include <iostream>
 #include <vector>
 
 #include "GDCore/PlatformDefinition/Project.h"
@@ -47,8 +48,12 @@ freely, subject to the following restrictions:
 
 //(*IdInit(TextBoxObjectEditor)
 const long TextBoxObjectEditor::ID_TEXTCTRL1 = wxNewId();
-const long TextBoxObjectEditor::ID_STATICTEXT1 = wxNewId();
+const long TextBoxObjectEditor::ID_CHECKBOX2 = wxNewId();
+const long TextBoxObjectEditor::ID_CHECKBOX1 = wxNewId();
+const long TextBoxObjectEditor::ID_TEXTCTRL3 = wxNewId();
 const long TextBoxObjectEditor::ID_BUTTON3 = wxNewId();
+const long TextBoxObjectEditor::ID_STATICTEXT1 = wxNewId();
+const long TextBoxObjectEditor::ID_SPINCTRL2 = wxNewId();
 const long TextBoxObjectEditor::ID_STATICTEXT2 = wxNewId();
 const long TextBoxObjectEditor::ID_TEXTCTRL2 = wxNewId();
 const long TextBoxObjectEditor::ID_BUTTON4 = wxNewId();
@@ -75,6 +80,8 @@ mainFrameWrapper(mainFrameWrapper_)
 	wxFlexGridSizer* FlexGridSizer3;
 	wxFlexGridSizer* FlexGridSizer5;
 	wxFlexGridSizer* FlexGridSizer2;
+	wxFlexGridSizer* FlexGridSizer7;
+	wxFlexGridSizer* FlexGridSizer6;
 	wxStaticBoxSizer* StaticBoxSizer1;
 	wxFlexGridSizer* FlexGridSizer1;
 
@@ -83,16 +90,36 @@ mainFrameWrapper(mainFrameWrapper_)
 	FlexGridSizer1->AddGrowableCol(0);
 	FlexGridSizer1->AddGrowableRow(0);
 	StaticBoxSizer1 = new wxStaticBoxSizer(wxHORIZONTAL, this, _("Text"));
+	FlexGridSizer6 = new wxFlexGridSizer(0, 1, 0, 0);
+	FlexGridSizer6->AddGrowableCol(0);
 	textTextCtrl = new wxTextCtrl(this, ID_TEXTCTRL1, wxEmptyString, wxDefaultPosition, wxSize(279,21), 0, wxDefaultValidator, _T("ID_TEXTCTRL1"));
-	StaticBoxSizer1->Add(textTextCtrl, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+	FlexGridSizer6->Add(textTextCtrl, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+	canSelectCheckBox = new wxCheckBox(this, ID_CHECKBOX2, _("Allow text selection"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_CHECKBOX2"));
+	canSelectCheckBox->SetValue(false);
+	FlexGridSizer6->Add(canSelectCheckBox, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+	FlexGridSizer7 = new wxFlexGridSizer(0, 2, 0, 0);
+	FlexGridSizer7->AddGrowableCol(1);
+	hideCharCheckBox = new wxCheckBox(this, ID_CHECKBOX1, _("Hide character :"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_CHECKBOX1"));
+	hideCharCheckBox->SetValue(false);
+	FlexGridSizer7->Add(hideCharCheckBox, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+	hideCharTextCtrl = new wxTextCtrl(this, ID_TEXTCTRL3, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRL3"));
+	hideCharTextCtrl->SetMaxLength(1);
+	hideCharTextCtrl->Disable();
+	FlexGridSizer7->Add(hideCharTextCtrl, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+	FlexGridSizer6->Add(FlexGridSizer7, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
+	StaticBoxSizer1->Add(FlexGridSizer6, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
 	FlexGridSizer1->Add(StaticBoxSizer1, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
 	StaticBoxSizer2 = new wxStaticBoxSizer(wxHORIZONTAL, this, _("Others properties"));
 	FlexGridSizer3 = new wxFlexGridSizer(0, 2, 0, 0);
 	FlexGridSizer3->AddGrowableCol(1);
-	StaticText1 = new wxStaticText(this, ID_STATICTEXT1, _("Theme :"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT1"));
-	FlexGridSizer3->Add(StaticText1, 1, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
-	colorBt = new wxButton(this, ID_BUTTON3, _("Edit the theme"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON3"));
+	FlexGridSizer3->Add(0,0,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+	colorBt = new wxButton(this, ID_BUTTON3, _("Edit the color palette"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON3"));
 	FlexGridSizer3->Add(colorBt, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+	StaticText1 = new wxStaticText(this, ID_STATICTEXT1, _("Border thickness :"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT1"));
+	FlexGridSizer3->Add(StaticText1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+	borderSpinCtrl = new wxSpinCtrl(this, ID_SPINCTRL2, _T("0"), wxDefaultPosition, wxDefaultSize, 0, 0, 100, 0, _T("ID_SPINCTRL2"));
+	borderSpinCtrl->SetValue(_T("0"));
+	FlexGridSizer3->Add(borderSpinCtrl, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
 	StaticText2 = new wxStaticText(this, ID_STATICTEXT2, _("Font :"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT2"));
 	FlexGridSizer3->Add(StaticText2, 1, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
 	FlexGridSizer4 = new wxFlexGridSizer(0, 3, 0, 0);
@@ -132,6 +159,9 @@ mainFrameWrapper(mainFrameWrapper_)
 	//*)
 
     textTextCtrl->SetValue(object.GetString().toAnsiString().c_str());
+    canSelectCheckBox->SetValue(object.IsAllowingTextSelection());
+
+    borderSpinCtrl->SetValue(object.GetBorderThickness());
     fontEdit->SetValue(object.GetFontFilename().c_str());
     sizeEdit->SetValue(object.GetCharacterSize());
 
@@ -147,6 +177,9 @@ TextBoxObjectEditor::~TextBoxObjectEditor()
 void TextBoxObjectEditor::OnokBtClick(wxCommandEvent& event)
 {
     object.SetString(gd::ToString(textTextCtrl->GetValue()));
+    object.AllowTextSelection(canSelectCheckBox->GetValue());
+
+    object.SetBorderThickness(borderSpinCtrl->GetValue());
     object.SetFontFilename(gd::ToString(fontEdit->GetValue()));
     object.SetCharacterSize(sizeEdit->GetValue());
 

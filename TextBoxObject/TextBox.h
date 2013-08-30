@@ -34,6 +34,12 @@ public:
     void SetCharacterSize(unsigned int s);
     unsigned int GetCharacterSize() const;
 
+    void SetBorderThickness(int thickness);
+    int GetBorderThickness() const;
+
+    void AllowTextSelection(bool allow = true);
+    bool IsAllowingTextSelection() const;
+
 protected:
     virtual void HandleMouseButtonEvent(sf::Mouse::Button button, bool pressed, int x, int y);
     virtual void HandleMouseMoveEvent(int x, int y);
@@ -65,6 +71,7 @@ private:
 
     int m_selectionBegin;
     int m_selectionEnd;
+    bool m_allowTextSelection;
 
     struct
     {

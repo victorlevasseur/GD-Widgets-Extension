@@ -78,6 +78,12 @@ public :
     unsigned int GetCharacterSize() const;
     void SetCharacterSize(unsigned int _size);
 
+    void SetBorderThickness(int thickness);
+    int GetBorderThickness() const;
+
+    void AllowTextSelection(bool allow);
+    bool IsAllowingTextSelection() const;
+
     const WCore::Palette& GetWidgetPalette() const;
     void SetWidgetPalette(WCore::Palette palette);
 

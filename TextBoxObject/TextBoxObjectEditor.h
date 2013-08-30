@@ -33,6 +33,7 @@ freely, subject to the following restrictions:
 #include <wx/sizer.h>
 #include <wx/stattext.h>
 #include <wx/textctrl.h>
+#include <wx/checkbox.h>
 #include <wx/spinctrl.h>
 #include <wx/statline.h>
 #include <wx/button.h>
@@ -54,24 +55,32 @@ class TextBoxObjectEditor: public wxDialog
 
 		//(*Declarations(TextBoxObjectEditor)
 		wxSpinCtrl* sizeEdit;
+		wxTextCtrl* hideCharTextCtrl;
 		wxStaticText* StaticText2;
+		wxCheckBox* canSelectCheckBox;
 		wxTextCtrl* textTextCtrl;
 		wxStaticText* StaticText1;
 		wxButton* cancelBt;
 		wxButton* fontBt;
 		wxButton* colorBt;
+		wxSpinCtrl* borderSpinCtrl;
 		wxStaticLine* StaticLine1;
 		wxTextCtrl* fontEdit;
 		wxStaticText* StaticText4;
 		wxButton* okBt;
+		wxCheckBox* hideCharCheckBox;
 		//*)
 
 	protected:
 
 		//(*Identifiers(TextBoxObjectEditor)
 		static const long ID_TEXTCTRL1;
-		static const long ID_STATICTEXT1;
+		static const long ID_CHECKBOX2;
+		static const long ID_CHECKBOX1;
+		static const long ID_TEXTCTRL3;
 		static const long ID_BUTTON3;
+		static const long ID_STATICTEXT1;
+		static const long ID_SPINCTRL2;
 		static const long ID_STATICTEXT2;
 		static const long ID_TEXTCTRL2;
 		static const long ID_BUTTON4;
