@@ -11,6 +11,7 @@ TextBox::TextBox() :
     m_backgroundShape(),
     m_string(""),
     m_text(),
+    m_hideChar(0),
     m_padding(0),
     m_selectionBegin(0),
     m_selectionEnd(0),
@@ -203,6 +204,16 @@ void TextBox::AllowTextSelection(bool allow)
 bool TextBox::IsAllowingTextSelection() const
 {
     return m_allowTextSelection;
+}
+
+void TextBox::SetHideCharacter(sf::Uint32 character)
+{
+    m_hideChar = character;
+}
+
+sf::Uint32 TextBox::GetHideCharacter() const
+{
+    return m_hideChar;
 }
 
 void TextBox::HandleKeyboardEvent(sf::Keyboard::Key button, bool pressed)
@@ -438,7 +449,7 @@ void TextBox::ComputeVisibleString()
     //while(m_text.getLocalBounds().width < m_size.x - 10 && i < m_string.getSize())
     while(m_text.findCharacterPos(m_text.getString().getSize()).x < m_size.x - 10 && i < m_string.getSize())
     {
-        m_text.setString(m_text.getString() + m_string[i]);
+        m_text.setString(m_text.getString() + (m_hideChar == sf::Uint32(0) ? m_string[i] : sf::String(m_hideChar)));
 
         //Remove last character if the text's size exceed the box's size
         if(m_text.findCharacterPos(m_text.getString().getSize()).x >= m_size.x - 10)

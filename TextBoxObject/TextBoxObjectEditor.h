@@ -99,6 +99,7 @@ class TextBoxObjectEditor: public wxDialog
 		void OnfontBtClick(wxCommandEvent& event);
 		void OnSizeEditChange(wxSpinEvent& event);
 		void OncancelBtClick(wxCommandEvent& event);
+		void OnhideCharCheckBoxClick(wxCommandEvent& event);
 		//*)
 
 		gd::Project & game;

@@ -95,6 +95,14 @@ void TextBoxObject::DoLoadFromXml(gd::Project & project, const TiXmlElement * el
             AllowTextSelection(false);
     }
 
+    if (elem->FirstChildElement("HideCharacter"))
+    {
+        int value = 1;
+        elem->FirstChildElement("HideCharacter")->QueryIntAttribute("value", &value);
+
+        SetHideCharacter(sf::Uint32(value));
+    }
+
 
     if(elem->FirstChildElement("Palette"))
     {
@@ -140,6 +148,16 @@ void TextBoxObject::AllowTextSelection(bool allow)
 bool TextBoxObject::IsAllowingTextSelection() const
 {
     return m_textBox.IsAllowingTextSelection();
+}
+
+void TextBoxObject::SetHideCharacter(sf::Uint32 character)
+{
+    m_textBox.SetHideCharacter(character);
+}
+
+sf::Uint32 TextBoxObject::GetHideCharacter() const
+{
+    return m_textBox.GetHideCharacter();
 }
 
 const WCore::Palette& TextBoxObject::GetWidgetPalette() const
@@ -207,6 +225,10 @@ void TextBoxObject::DoSaveToXml(TiXmlElement * elem)
     TiXmlElement * txtSelElem = new TiXmlElement( "AllowTextSelection" );
     elem->LinkEndChild( txtSelElem );
     txtSelElem->SetAttribute("value", IsAllowingTextSelection() ? "true" : "false");
+
+    TiXmlElement * hideCharElem = new TiXmlElement( "HideCharacter" );
+    elem->LinkEndChild( hideCharElem );
+    hideCharElem->SetAttribute("value", (int)GetHideCharacter());
 
     TiXmlElement * paletteElem = new TiXmlElement( "Palette" );
     elem->LinkEndChild( paletteElem );

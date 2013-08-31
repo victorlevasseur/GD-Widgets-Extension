@@ -44,7 +44,7 @@ public:
     CppExtension()
     {
         SetExtensionInformation("TextBoxObject",
-                              _("GUI - TextBox object"),
+                              _("Widgets - TextBox object"),
                               _("Provides an object to allow the user to enter and edit a line of text."),
                               "Victor Levasseur",
                               "zlib/libpng License ( Open Source )");

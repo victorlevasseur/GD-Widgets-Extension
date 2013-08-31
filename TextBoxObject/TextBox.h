@@ -40,6 +40,10 @@ public:
     void AllowTextSelection(bool allow = true);
     bool IsAllowingTextSelection() const;
 
+    /// 0 to disable this feature
+    void SetHideCharacter(sf::Uint32 character);
+    sf::Uint32 GetHideCharacter() const;
+
 protected:
     virtual void HandleMouseButtonEvent(sf::Mouse::Button button, bool pressed, int x, int y);
     virtual void HandleMouseMoveEvent(int x, int y);
@@ -66,6 +70,8 @@ private:
     sf::RectangleShape m_backgroundShape;
     sf::String m_string;
     sf::Text m_text;
+
+    sf::Uint32 m_hideChar;
 
     int m_padding;
 

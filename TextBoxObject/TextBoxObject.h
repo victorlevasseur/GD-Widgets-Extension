@@ -84,6 +84,9 @@ public :
     void AllowTextSelection(bool allow);
     bool IsAllowingTextSelection() const;
 
+    void SetHideCharacter(sf::Uint32 character);
+    sf::Uint32 GetHideCharacter() const;
+
     const WCore::Palette& GetWidgetPalette() const;
     void SetWidgetPalette(WCore::Palette palette);
 

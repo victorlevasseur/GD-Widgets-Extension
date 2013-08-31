@@ -151,6 +151,7 @@ mainFrameWrapper(mainFrameWrapper_)
 	FlexGridSizer1->Fit(this);
 	FlexGridSizer1->SetSizeHints(this);
 
+	Connect(ID_CHECKBOX1,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&TextBoxObjectEditor::OnhideCharCheckBoxClick);
 	Connect(ID_BUTTON3,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&TextBoxObjectEditor::OncolorBtClick);
 	Connect(ID_BUTTON4,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&TextBoxObjectEditor::OnfontBtClick);
 	Connect(ID_SPINCTRL1,wxEVT_COMMAND_SPINCTRL_UPDATED,(wxObjectEventFunction)&TextBoxObjectEditor::OnSizeEditChange);
@@ -160,6 +161,13 @@ mainFrameWrapper(mainFrameWrapper_)
 
     textTextCtrl->SetValue(object.GetString().toAnsiString().c_str());
     canSelectCheckBox->SetValue(object.IsAllowingTextSelection());
+
+    sf::Uint32 hideChar = object.GetHideCharacter();
+    sf::String hideCharStr(hideChar);
+    hideCharCheckBox->SetValue(hideChar != sf::Uint32(0));
+    hideCharTextCtrl->Enable(hideChar != sf::Uint32(0));
+    if(hideChar != sf::Uint32(0))
+        hideCharTextCtrl->SetValue(hideCharStr.toAnsiString().c_str());
 
     borderSpinCtrl->SetValue(object.GetBorderThickness());
     fontEdit->SetValue(object.GetFontFilename().c_str());
@@ -178,6 +186,17 @@ void TextBoxObjectEditor::OnokBtClick(wxCommandEvent& event)
 {
     object.SetString(gd::ToString(textTextCtrl->GetValue()));
     object.AllowTextSelection(canSelectCheckBox->GetValue());
+
+    if(hideCharCheckBox->GetValue())
+    {
+        sf::String hideCharStr(gd::ToString(hideCharTextCtrl->GetValue()));
+        object.SetHideCharacter(hideCharStr[0]);
+    }
+    else
+    {
+        object.SetHideCharacter(sf::Uint32(0));
+    }
+
 
     object.SetBorderThickness(borderSpinCtrl->GetValue());
     object.SetFontFilename(gd::ToString(fontEdit->GetValue()));
@@ -224,6 +243,11 @@ void TextBoxObjectEditor::OnfontBtClick(wxCommandEvent& event)
 
 void TextBoxObjectEditor::OnSizeEditChange(wxSpinEvent& event)
 {
+
+}
+
+void TextBoxObjectEditor::OnhideCharCheckBoxClick(wxCommandEvent& event)
+{
+    hideCharTextCtrl->Enable(hideCharCheckBox->GetValue());
 }
 #endif
-
