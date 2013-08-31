@@ -216,6 +216,7 @@ void TextBoxObjectEditor::OncolorBtClick(wxCommandEvent& event)
 {
     std::vector<std::pair<std::string, wxString> > colorsToEdit;
     colorsToEdit.push_back(std::pair<std::string, wxString>("text", _("Text")));
+    colorsToEdit.push_back(std::pair<std::string, wxString>("placeholder", _("Placeholder")));
     colorsToEdit.push_back(std::pair<std::string, wxString>("background", _("Background")));
     colorsToEdit.push_back(std::pair<std::string, wxString>("border", _("Border")));
     colorsToEdit.push_back(std::pair<std::string, wxString>("selection", _("Selection")));

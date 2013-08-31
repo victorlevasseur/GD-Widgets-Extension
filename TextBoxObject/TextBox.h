@@ -52,6 +52,8 @@ protected:
 
     virtual void HandleSizeChange();
 
+    virtual void HandleStateChange();
+
     virtual void HandleTime(float time);
 
     virtual void UpdateDrawables();
@@ -72,6 +74,7 @@ private:
     sf::Text m_text;
 
     sf::Uint32 m_hideChar;
+    sf::String m_placeholder;
 
     int m_padding;
 

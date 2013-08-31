@@ -11,9 +11,9 @@
 			<Cursor1 position="3105" topLine="54" />
 		</Cursor>
 	</File>
-	<File name="TextBoxObjectEditor.cpp" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="TextBoxObjectEditor.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="10333" topLine="158" />
+			<Cursor1 position="11300" topLine="194" />
 		</Cursor>
 	</File>
 	<File name="TextBoxObjectEditor.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -21,19 +21,19 @@
 			<Cursor1 position="1402" topLine="68" />
 		</Cursor>
 	</File>
-	<File name="Extension.cpp" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Extension.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="15322" topLine="273" />
 		</Cursor>
 	</File>
-	<File name="TextBox.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="TextBox.cpp" open="1" top="1" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="4268" topLine="183" />
+			<Cursor1 position="12325" topLine="428" />
 		</Cursor>
 	</File>
 	<File name="TextBox.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1075" topLine="17" />
+			<Cursor1 position="1544" topLine="38" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

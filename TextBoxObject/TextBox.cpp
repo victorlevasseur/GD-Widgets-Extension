@@ -12,6 +12,7 @@ TextBox::TextBox() :
     m_string(""),
     m_text(),
     m_hideChar(0),
+    m_placeholder("Edit me !"),
     m_padding(0),
     m_selectionBegin(0),
     m_selectionEnd(0),
@@ -373,6 +374,11 @@ void TextBox::HandleSizeChange()
     ComputeCursorPosition();
 }
 
+void TextBox::HandleStateChange()
+{
+    ComputeVisibleString();
+}
+
 void TextBox::HandleTime(float time)
 {
     m_dragSelection.timer += time;
@@ -401,7 +407,6 @@ void TextBox::UpdateDrawables()
 {
     WCore::State state = WCore::GetWidgetState(*this);
 
-    m_text.setColor(GetPalette().GetColor("text", state));
     m_backgroundShape.setFillColor(GetPalette().GetColor("background", state));
     m_backgroundShape.setOutlineColor(GetPalette().GetColor("border", state));
 
@@ -421,6 +426,12 @@ void TextBox::InitPalette()
                 .SetColor("text", WCore::HOVERED, sf::Color(0, 0, 0, 255))
                 .SetColor("text", WCore::FOCUSED, sf::Color(0, 0, 0, 255))
                 .SetColor("text", WCore::FOCUSED_HOVERED, sf::Color(0, 0, 0, 255))
+
+                .SetColor("placeholder", WCore::DISABLED, sf::Color(170, 170, 170, 255))
+                .SetColor("placeholder", WCore::ENABLED, sf::Color(170, 170, 170, 255))
+                .SetColor("placeholder", WCore::HOVERED, sf::Color(170, 170, 170, 255))
+                .SetColor("placeholder", WCore::FOCUSED, sf::Color(170, 170, 170, 255))
+                .SetColor("placeholder", WCore::FOCUSED_HOVERED, sf::Color(170, 170, 170, 255))
 
                 .SetColor("background", WCore::DISABLED, sf::Color(130, 130, 130, 255))
                 .SetColor("background", WCore::ENABLED, sf::Color(210, 210, 210, 255))
@@ -445,11 +456,28 @@ void TextBox::ComputeVisibleString()
 {
     m_text.setString("");
 
-    int i = m_padding;
-    //while(m_text.getLocalBounds().width < m_size.x - 10 && i < m_string.getSize())
-    while(m_text.findCharacterPos(m_text.getString().getSize()).x < m_size.x - 10 && i < m_string.getSize())
+    bool showPlaceholder = m_string.getSize() == 0 && !HasFocus();
+
+    //Change the color (text or placeholder)
+    WCore::State state = WCore::GetWidgetState(*this);
+    if(showPlaceholder)
+        m_text.setColor(GetPalette().GetColor("placeholder", state));
+    else
+        m_text.setColor(GetPalette().GetColor("text", state));
+
+    //Define if we have to show the placeholder or the string
+    sf::String stringToAdd = (showPlaceholder ? m_placeholder : m_string);
+
+    //Padding is not used for placeholder
+    int i = (showPlaceholder ? 0 : m_padding);
+
+    //Add characters until it goes out of the box
+    while(m_text.findCharacterPos(m_text.getString().getSize()).x < m_size.x - 10 && i < stringToAdd.getSize())
     {
-        m_text.setString(m_text.getString() + (m_hideChar == sf::Uint32(0) ? m_string[i] : sf::String(m_hideChar)));
+        if(!showPlaceholder)
+            m_text.setString(m_text.getString() + (m_hideChar == sf::Uint32(0) ? stringToAdd[i] : sf::String(m_hideChar)));
+        else
+            m_text.setString(m_text.getString() + stringToAdd[i]);
 
         //Remove last character if the text's size exceed the box's size
         if(m_text.findCharacterPos(m_text.getString().getSize()).x >= m_size.x - 10)
