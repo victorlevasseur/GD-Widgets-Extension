@@ -17,6 +17,7 @@ TextBox::TextBox() :
     m_selectionBegin(0),
     m_selectionEnd(0),
     m_allowTextSelection(true),
+    m_cursorTimer(0),
     m_isCursorVisible(true),
     m_cursorShape()
 {
@@ -49,7 +50,12 @@ void TextBox::Draw(sf::RenderTarget &wnd)
 {
     wnd.draw(m_backgroundShape, m_currentTransform);
     if(m_isCursorVisible && m_enabled)
-        wnd.draw(m_cursorShape, m_currentTransform);
+    {
+        if((m_selectionBegin == m_selectionEnd && m_cursorTimer < 0.5) || m_selectionBegin != m_selectionEnd)
+        {
+            wnd.draw(m_cursorShape, m_currentTransform);
+        }
+    }
 
     wnd.draw(m_text, m_currentTransform);
 }
@@ -105,6 +111,7 @@ void TextBox::Select(int position)
         }
     }
 
+    ResetCursorTimer();
     ComputeCursorPosition();
     UpdateSelectionDrawable();
 }
@@ -114,6 +121,7 @@ void TextBox::Select(int selectionBegin, int selectionEnd)
     m_selectionBegin = selectionBegin;
     m_selectionEnd = selectionEnd;
 
+    ResetCursorTimer();
     ComputeCursorPosition();
     UpdateSelectionDrawable();
 }
@@ -392,6 +400,12 @@ void TextBox::HandleStateChange()
 
 void TextBox::HandleTime(float time)
 {
+    m_cursorTimer += time;
+    if(m_cursorTimer > 1)
+    {
+        m_cursorTimer -= 1;
+    }
+
     m_dragSelection.timer += time;
 
     if(m_dragSelection.isDragging && m_dragSelection.timer > 0.2)
@@ -559,8 +573,25 @@ void TextBox::UpdateSelectionDrawable()
 {
     WCore::State state = WCore::GetWidgetState(*this);
 
+    //Use the text color for the cursor and the selection color for a selection
     if(m_selectionBegin != m_selectionEnd)
+    {
         m_cursorShape.setFillColor(GetPalette().GetColor("selection", state));
+    }
     else
-        m_cursorShape.setFillColor(GetPalette().GetColor("text", state));
+    {
+        if(HasFocus())
+        {
+            m_cursorShape.setFillColor(GetPalette().GetColor("text", state));
+        }
+        else
+        {
+            m_cursorShape.setFillColor(sf::Color(0, 0, 0, 0));
+        }
+    }
+}
+
+void TextBox::ResetCursorTimer()
+{
+    m_cursorTimer = 0;
 }

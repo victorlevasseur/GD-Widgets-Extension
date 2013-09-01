@@ -185,6 +185,8 @@ void Widget::Enable()
 void Widget::Disable()
 {
     m_enabled = false;
+    m_focus = false;
+    m_hovered = false;
     UpdateDrawables();
     HandleStateChange();
 }

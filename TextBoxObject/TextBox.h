@@ -52,11 +52,8 @@ protected:
     virtual void HandleMouseMoveEvent(int x, int y);
     virtual void HandleKeyboardEvent(sf::Keyboard::Key button, bool pressed);
     virtual void HandleTextEntered(sf::Uint32 character);
-
     virtual void HandleSizeChange();
-
     virtual void HandleStateChange();
-
     virtual void HandleTime(float time);
 
     virtual void UpdateDrawables();
@@ -72,6 +69,8 @@ private:
 
     void UpdateSelectionDrawable();
 
+    void ResetCursorTimer();
+
     sf::RectangleShape m_backgroundShape;
     sf::String m_string;
     sf::Text m_text;
@@ -84,6 +83,7 @@ private:
     int m_selectionBegin;
     int m_selectionEnd;
     bool m_allowTextSelection;
+    float m_cursorTimer;
 
     struct
     {
