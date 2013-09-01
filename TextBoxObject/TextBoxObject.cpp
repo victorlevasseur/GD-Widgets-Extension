@@ -43,6 +43,7 @@ freely, subject to the following restrictions:
 #include "TextBoxObject.h"
 
 #include "WidgetsCore/PaletteSerialization.h"
+#include "WidgetsCore/CameraTools.h"
 
 #if defined(GD_IDE_ONLY)
 #include "GDCore/IDE/ArbitraryResourceWorker.h"
@@ -315,7 +316,36 @@ void RuntimeTextBoxObject::UpdateTime(float timeElapsed)
     const std::vector<sf::Event> & events = m_scene->GetRenderTargetEvents();
     for(unsigned int i = 0; i < events.size(); i++)
     {
-        m_textBox.ProceedEvent(events[i]);
+        sf::Event event = events[i];
+
+        //Map window coords to real world coords
+        if(event.type == sf::Event::MouseButtonPressed || event.type == sf::Event::MouseButtonReleased)
+        {
+            sf::Vector2i mousePos(event.mouseButton.x, event.mouseButton.y);
+            sf::Vector2f worldPos(WCore::MapPixelsToCoords(mousePos, GetLayer(), *m_scene));
+
+            event.mouseButton.x = worldPos.x;
+            event.mouseButton.y = worldPos.y;
+        }
+        else if(event.type == sf::Event::MouseMoved || event.type == sf::Event::MouseEntered || event.type == sf::Event::MouseLeft)
+        {
+            sf::Vector2i mousePos(event.mouseMove.x, event.mouseMove.y);
+            sf::Vector2f worldPos(WCore::MapPixelsToCoords(mousePos, GetLayer(), *m_scene));
+
+            event.mouseMove.x = worldPos.x;
+            event.mouseMove.y = worldPos.y;
+        }
+        else if(event.type == sf::Event::MouseWheelMoved)
+        {
+            sf::Vector2i mousePos(event.mouseWheel.x, event.mouseWheel.y);
+            sf::Vector2f worldPos(WCore::MapPixelsToCoords(mousePos, GetLayer(), *m_scene));
+
+            event.mouseWheel.x = worldPos.x;
+            event.mouseWheel.y = worldPos.y;
+        }
+
+        //Proceed the event
+        m_textBox.ProceedEvent(event);
     }
 
     m_textBox.ProceedTime(timeElapsed);

@@ -43,7 +43,8 @@ public:
 
     bool IsHovered() const;
 
-    bool IsOnWidget(sf::Vector2f point) const;
+    ///Returns true if the point (relative to the widget (see ConvertPoint) ) is on the widget.
+    virtual bool IsOnWidget(sf::Vector2f point) const;
 
     Palette& GetPalette();
     const Palette& GetPalette() const;

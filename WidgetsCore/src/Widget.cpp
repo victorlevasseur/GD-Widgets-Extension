@@ -55,6 +55,23 @@ sf::Vector2f Widget::ConvertPoint(sf::Vector2f point) const
 
 void Widget::ProceedEvent(sf::Event event)
 {
+    //Manage widget's focus
+    if(event.type == sf::Event::MouseButtonPressed)
+    {
+        sf::Vector2f mousePosition(event.mouseButton.x, event.mouseButton.y);
+        sf::Vector2f mouseRelative = ConvertPoint(mousePosition);
+
+        if(IsOnWidget(mouseRelative) && !m_focus)
+        {
+            GrabFocus();
+        }
+        if(!IsOnWidget(mouseRelative) && m_focus)
+        {
+            LostFocus();
+        }
+    }
+
+    //Manage widget hovering
     if(event.type == sf::Event::MouseWheelMoved)
     {
         sf::Vector2f mousePosition(event.mouseWheel.x, event.mouseWheel.y);
@@ -125,6 +142,7 @@ void Widget::ProceedEvent(sf::Event event)
         }
     }
 
+    //Send event info to event's handlers
     if(event.type == sf::Event::MouseButtonPressed)
     {
         HandleMouseButtonEvent(event.mouseButton.button, true, event.mouseButton.x, event.mouseButton.y);

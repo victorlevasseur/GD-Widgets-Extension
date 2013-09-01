@@ -12,7 +12,7 @@ TextBox::TextBox() :
     m_string(""),
     m_text(),
     m_hideChar(0),
-    m_placeholder("Edit me !"),
+    m_placeholder(""),
     m_padding(0),
     m_selectionBegin(0),
     m_selectionEnd(0),
@@ -327,15 +327,6 @@ void TextBox::HandleMouseButtonEvent(sf::Mouse::Button button, bool pressed, int
 
     if(pressed)
     {
-        if(IsOnWidget(mousePos) && !m_focus)
-        {
-            GrabFocus();
-        }
-        if(!IsOnWidget(mousePos) && m_focus)
-        {
-            LostFocus();
-        }
-
         if(m_focus)
         {
             if(m_allowTextSelection)
