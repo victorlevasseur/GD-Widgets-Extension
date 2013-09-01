@@ -38,9 +38,10 @@
 									<object class="sizeritem">
 										<object class="wxCheckBox" name="ID_CHECKBOX1" variable="hideCharCheckBox" member="yes">
 											<label>Hide character :</label>
+											<tooltip>The hide character is a character that hide real&#x0A;characters to be shown in the text box&#x0A;(for a password for example).</tooltip>
 											<handler function="OnhideCharCheckBoxClick" entry="EVT_CHECKBOX" />
 										</object>
-										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>
 										<option>1</option>
 									</object>
@@ -48,6 +49,23 @@
 										<object class="wxTextCtrl" name="ID_TEXTCTRL3" variable="hideCharTextCtrl" member="yes">
 											<maxlength>1</maxlength>
 											<enabled>0</enabled>
+											<tooltip>The hide character is a character that hide real&#x0A;characters to be shown in the text box&#x0A;(for a password for example).</tooltip>
+										</object>
+										<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT3" variable="StaticText3" member="yes">
+											<label>Placeholder :</label>
+										</object>
+										<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxTextCtrl" name="ID_TEXTCTRL4" variable="placeholderTextCtrl" member="yes">
+											<tooltip>The placeholder is a text shown when the text box&#x0A;is empty and doesn&apos;t have the focus to give an indication.</tooltip>
 										</object>
 										<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 										<border>5</border>

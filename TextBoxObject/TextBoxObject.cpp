@@ -103,6 +103,8 @@ void TextBoxObject::DoLoadFromXml(gd::Project & project, const TiXmlElement * el
         SetHideCharacter(sf::Uint32(value));
     }
 
+    if ( elem->FirstChildElement("Placeholder") && elem->FirstChildElement("Placeholder")->Attribute("value") )
+        SetPlaceholder(sf::String(elem->FirstChildElement("Placeholder")->Attribute("value")));
 
     if(elem->FirstChildElement("Palette"))
     {
@@ -158,6 +160,16 @@ void TextBoxObject::SetHideCharacter(sf::Uint32 character)
 sf::Uint32 TextBoxObject::GetHideCharacter() const
 {
     return m_textBox.GetHideCharacter();
+}
+
+void TextBoxObject::SetPlaceholder(sf::String placeholder)
+{
+    m_textBox.SetPlaceholder(placeholder);
+}
+
+sf::String TextBoxObject::GetPlaceholder() const
+{
+    return m_textBox.GetPlaceholder();
 }
 
 const WCore::Palette& TextBoxObject::GetWidgetPalette() const
@@ -229,6 +241,10 @@ void TextBoxObject::DoSaveToXml(TiXmlElement * elem)
     TiXmlElement * hideCharElem = new TiXmlElement( "HideCharacter" );
     elem->LinkEndChild( hideCharElem );
     hideCharElem->SetAttribute("value", (int)GetHideCharacter());
+
+    TiXmlElement * placeholderElem = new TiXmlElement( "Placeholder" );
+    elem->LinkEndChild( placeholderElem );
+    placeholderElem->SetAttribute("value", GetPlaceholder().toAnsiString().c_str());
 
     TiXmlElement * paletteElem = new TiXmlElement( "Palette" );
     elem->LinkEndChild( paletteElem );

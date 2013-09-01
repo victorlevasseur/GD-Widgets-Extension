@@ -87,6 +87,9 @@ public :
     void SetHideCharacter(sf::Uint32 character);
     sf::Uint32 GetHideCharacter() const;
 
+    void SetPlaceholder(sf::String placeholder);
+    sf::String GetPlaceholder() const;
+
     const WCore::Palette& GetWidgetPalette() const;
     void SetWidgetPalette(WCore::Palette palette);
 

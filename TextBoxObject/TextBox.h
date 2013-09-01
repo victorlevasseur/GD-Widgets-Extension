@@ -44,6 +44,9 @@ public:
     void SetHideCharacter(sf::Uint32 character);
     sf::Uint32 GetHideCharacter() const;
 
+    void SetPlaceholder(sf::String placeholder);
+    sf::String GetPlaceholder() const;
+
 protected:
     virtual void HandleMouseButtonEvent(sf::Mouse::Button button, bool pressed, int x, int y);
     virtual void HandleMouseMoveEvent(int x, int y);

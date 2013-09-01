@@ -60,11 +60,13 @@ class TextBoxObjectEditor: public wxDialog
 		wxCheckBox* canSelectCheckBox;
 		wxTextCtrl* textTextCtrl;
 		wxStaticText* StaticText1;
+		wxStaticText* StaticText3;
 		wxButton* cancelBt;
 		wxButton* fontBt;
 		wxButton* colorBt;
 		wxSpinCtrl* borderSpinCtrl;
 		wxStaticLine* StaticLine1;
+		wxTextCtrl* placeholderTextCtrl;
 		wxTextCtrl* fontEdit;
 		wxStaticText* StaticText4;
 		wxButton* okBt;
@@ -78,6 +80,8 @@ class TextBoxObjectEditor: public wxDialog
 		static const long ID_CHECKBOX2;
 		static const long ID_CHECKBOX1;
 		static const long ID_TEXTCTRL3;
+		static const long ID_STATICTEXT3;
+		static const long ID_TEXTCTRL4;
 		static const long ID_BUTTON3;
 		static const long ID_STATICTEXT1;
 		static const long ID_SPINCTRL2;

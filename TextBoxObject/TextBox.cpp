@@ -210,11 +210,22 @@ bool TextBox::IsAllowingTextSelection() const
 void TextBox::SetHideCharacter(sf::Uint32 character)
 {
     m_hideChar = character;
+    ComputeVisibleString();
 }
 
 sf::Uint32 TextBox::GetHideCharacter() const
 {
     return m_hideChar;
+}
+
+void TextBox::SetPlaceholder(sf::String placeholder)
+{
+    m_placeholder = placeholder;
+}
+
+sf::String TextBox::GetPlaceholder() const
+{
+    return m_placeholder;
 }
 
 void TextBox::HandleKeyboardEvent(sf::Keyboard::Key button, bool pressed)
@@ -456,7 +467,7 @@ void TextBox::ComputeVisibleString()
 {
     m_text.setString("");
 
-    bool showPlaceholder = m_string.getSize() == 0 && !HasFocus();
+    bool showPlaceholder = m_string.getSize() == 0 && !HasFocus() && IsEnabled();
 
     //Change the color (text or placeholder)
     WCore::State state = WCore::GetWidgetState(*this);
@@ -474,6 +485,7 @@ void TextBox::ComputeVisibleString()
     //Add characters until it goes out of the box
     while(m_text.findCharacterPos(m_text.getString().getSize()).x < m_size.x - 10 && i < stringToAdd.getSize())
     {
+        //Don't use hide character with the placeholder
         if(!showPlaceholder)
             m_text.setString(m_text.getString() + (m_hideChar == sf::Uint32(0) ? stringToAdd[i] : sf::String(m_hideChar)));
         else

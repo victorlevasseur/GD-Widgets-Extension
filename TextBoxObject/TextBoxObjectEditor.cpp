@@ -51,6 +51,8 @@ const long TextBoxObjectEditor::ID_TEXTCTRL1 = wxNewId();
 const long TextBoxObjectEditor::ID_CHECKBOX2 = wxNewId();
 const long TextBoxObjectEditor::ID_CHECKBOX1 = wxNewId();
 const long TextBoxObjectEditor::ID_TEXTCTRL3 = wxNewId();
+const long TextBoxObjectEditor::ID_STATICTEXT3 = wxNewId();
+const long TextBoxObjectEditor::ID_TEXTCTRL4 = wxNewId();
 const long TextBoxObjectEditor::ID_BUTTON3 = wxNewId();
 const long TextBoxObjectEditor::ID_STATICTEXT1 = wxNewId();
 const long TextBoxObjectEditor::ID_SPINCTRL2 = wxNewId();
@@ -101,11 +103,18 @@ mainFrameWrapper(mainFrameWrapper_)
 	FlexGridSizer7->AddGrowableCol(1);
 	hideCharCheckBox = new wxCheckBox(this, ID_CHECKBOX1, _("Hide character :"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_CHECKBOX1"));
 	hideCharCheckBox->SetValue(false);
-	FlexGridSizer7->Add(hideCharCheckBox, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+	hideCharCheckBox->SetToolTip(_("The hide character is a character that hide real\ncharacters to be shown in the text box\n(for a password for example)."));
+	FlexGridSizer7->Add(hideCharCheckBox, 1, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
 	hideCharTextCtrl = new wxTextCtrl(this, ID_TEXTCTRL3, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRL3"));
 	hideCharTextCtrl->SetMaxLength(1);
 	hideCharTextCtrl->Disable();
+	hideCharTextCtrl->SetToolTip(_("The hide character is a character that hide real\ncharacters to be shown in the text box\n(for a password for example)."));
 	FlexGridSizer7->Add(hideCharTextCtrl, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+	StaticText3 = new wxStaticText(this, ID_STATICTEXT3, _("Placeholder :"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT3"));
+	FlexGridSizer7->Add(StaticText3, 1, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+	placeholderTextCtrl = new wxTextCtrl(this, ID_TEXTCTRL4, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRL4"));
+	placeholderTextCtrl->SetToolTip(_("The placeholder is a text shown when the text box\nis empty and doesn\'t have the focus to give an indication."));
+	FlexGridSizer7->Add(placeholderTextCtrl, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
 	FlexGridSizer6->Add(FlexGridSizer7, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
 	StaticBoxSizer1->Add(FlexGridSizer6, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
 	FlexGridSizer1->Add(StaticBoxSizer1, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
@@ -169,6 +178,8 @@ mainFrameWrapper(mainFrameWrapper_)
     if(hideChar != sf::Uint32(0))
         hideCharTextCtrl->SetValue(hideCharStr.toAnsiString().c_str());
 
+    placeholderTextCtrl->SetValue(object.GetPlaceholder().toAnsiString().c_str());
+
     borderSpinCtrl->SetValue(object.GetBorderThickness());
     fontEdit->SetValue(object.GetFontFilename().c_str());
     sizeEdit->SetValue(object.GetCharacterSize());
@@ -196,6 +207,8 @@ void TextBoxObjectEditor::OnokBtClick(wxCommandEvent& event)
     {
         object.SetHideCharacter(sf::Uint32(0));
     }
+
+    object.SetPlaceholder(gd::ToString(placeholderTextCtrl->GetValue()));
 
 
     object.SetBorderThickness(borderSpinCtrl->GetValue());
