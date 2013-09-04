@@ -65,7 +65,7 @@ public:
 
             obj.SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
-            /*obj.AddAction("String",
+            obj.AddAction("String",
                            _("Modify the text"),
                            _("Modify the text of a Text object."),
                            _("Do _PARAM1__PARAM2_ to the text of _PARAM0_"),
@@ -100,7 +100,7 @@ public:
                 .AddParameter("police", _("Font"))
                 .codeExtraInformation.SetFunctionName("ChangeFont").SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
-            obj.AddAction("Size",
+            /*obj.AddAction("Size",
                            _("Size"),
                            _("Modify the size of the text."),
                            _("Do _PARAM1__PARAM2_ to the size of the text of _PARAM0_"),
@@ -133,117 +133,7 @@ public:
                            "res/actions/color.png")
                 .AddParameter("object", _("Object"), "Text", false)
                 .AddParameter("color", _("Color"))
-                .codeExtraInformation.SetFunctionName("SetColor").SetIncludeFile("TextBoxObject/TextBoxObject.h");
-
-            obj.AddAction("Opacity",
-                           _("Opacity"),
-                           _("Modify the opacity of a Text object."),
-                           _("Do _PARAM1__PARAM2_ to the opacity of _PARAM0_"),
-                           _("Visibility"),
-                           "res/actions/opacity24.png",
-                           "res/actions/opacity.png")
-                .AddParameter("object", _("Object"), "Text", false)
-                .AddParameter("operator", _("Modification's sign"))
-                .AddParameter("expression", _("Value"))
-                .codeExtraInformation.SetFunctionName("SetOpacity").SetManipulatedType("number").SetAssociatedGetter("GetOpacity").SetIncludeFile("TextBoxObject/TextBoxObject.h");
-
-            obj.AddCondition("Opacity",
-                           _("Opacity"),
-                           _("Test the value of the opacity of a text object."),
-                           _("The opacity of _PARAM0_ is _PARAM1__PARAM2_"),
-                           _("Visibility"),
-                           "res/conditions/opacity24.png",
-                           "res/conditions/opacity.png")
-                .AddParameter("object", _("Object"), "Text", false)
-                .AddParameter("relationalOperator", _("Sign of the test"))
-                .AddParameter("expression", _("Value to test"))
-                .codeExtraInformation.SetFunctionName("GetOpacity").SetManipulatedType("number").SetIncludeFile("TextBoxObject/TextBoxObject.h");
-
-
-
-            obj.AddAction("SetSmooth",
-                           _("Smoothing"),
-                           _("Activate or desactivate text smoothing."),
-                           _("Smooth _PARAM0_: _PARAM1_"),
-                           _("Visibility"),
-                           "res/actions/opacity24.png",
-                           "res/actions/opacity.png")
-                .AddParameter("object", _("Object"), "Text", false)
-                .AddParameter("yesorno", _("Smooth the text"))
-                .codeExtraInformation.SetFunctionName("SetSmooth").SetIncludeFile("TextBoxObject/TextBoxObject.h");
-
-            obj.AddCondition("Smoothed",
-                           _("Smoothing"),
-                           _("Test if an object is smoothed"),
-                           _("_PARAM0_ is smoothed"),
-                           _("Visibility"),
-                           "res/conditions/opacity24.png",
-                           "res/conditions/opacity.png")
-                .AddParameter("object", _("Object"), "Text", false)
-                .codeExtraInformation.SetFunctionName("IsSmoothed").SetIncludeFile("TextBoxObject/TextBoxObject.h");
-
-            obj.AddAction("SetBold",
-                           _("Bold"),
-                           _("De/activate bold"),
-                           _("Set bold style of _PARAM0_ : _PARAM1_"),
-                           _("Style"),
-                           "res/actions/bold.png",
-                           "res/actions/bold16.png")
-                .AddParameter("object", _("Object"), "Text", false)
-                .AddParameter("yesorno", _("Set bold style"))
-                .codeExtraInformation.SetFunctionName("SetBold").SetIncludeFile("TextBoxObject/TextBoxObject.h");
-
-            obj.AddCondition("IsBold",
-                           _("Bold"),
-                           _("Test if bold style is activated"),
-                           _("_PARAM0_ bold style is set"),
-                           _("Style"),
-                           "res/conditions/bold.png",
-                           "res/conditions/bold16.png")
-                .AddParameter("object", _("Object"), "Text", false)
-                .codeExtraInformation.SetFunctionName("IsBold").SetIncludeFile("TextBoxObject/TextBoxObject.h");
-
-            obj.AddAction("SetItalic",
-                           _("Italic"),
-                           _("De/activate italic."),
-                           _("Set italic style for _PARAM0_ : _PARAM1_"),
-                           _("Style"),
-                           "res/actions/italic.png",
-                           "res/actions/italic16.png")
-                .AddParameter("object", _("Object"), "Text", false)
-                .AddParameter("yesorno", _("Set italic"))
-                .codeExtraInformation.SetFunctionName("SetItalic").SetIncludeFile("TextBoxObject/TextBoxObject.h");
-
-            obj.AddCondition("IsItalic",
-                           _("Italic"),
-                           _("Test if the italic style is activated"),
-                           _("_PARAM0_ italic style is set"),
-                           _("Style"),
-                           "res/conditions/italic.png",
-                           "res/conditions/italic16.png")
-                .AddParameter("object", _("Object"), "Text", false)
-                .codeExtraInformation.SetFunctionName("IsItalic").SetIncludeFile("TextBoxObject/TextBoxObject.h");
-
-            obj.AddAction("SetUnderlined",
-                           _("Underlined"),
-                           _("De/activate underlined style."),
-                           _("Set underlined style of _PARAM0_: _PARAM1_"),
-                           _("Style"),
-                           "res/actions/underline.png",
-                           "res/actions/underline16.png")
-                .AddParameter("object", _("Object"), "Text", false)
-                .AddParameter("yesorno", _("Underline"))
-                .codeExtraInformation.SetFunctionName("SetUnderlined").SetIncludeFile("TextBoxObject/TextBoxObject.h");
-
-            obj.AddCondition("IsUnderlined",
-                           _("Underlined"),
-                           _("Test if the underlined style of an object is set."),
-                           _("_PARAM0_ underlined style is activated"),
-                           _("Style"),
-                           "res/conditions/underline.png",
-                           "res/conditions/underline16.png")
-                .AddParameter("object", _("Object"), "Text", false)
-                .codeExtraInformation.SetFunctionName("IsUnderlined").SetIncludeFile("TextBoxObject/TextBoxObject.h");
+                .codeExtraInformation.SetFunctionName("SetColor").SetIncludeFile("TextBoxObject/TextBoxObject.h");*/
 
             obj.AddAction("Angle",
                            _("Angle"),
@@ -269,13 +159,9 @@ public:
                 .AddParameter("expression", _("Value to test"))
                 .codeExtraInformation.SetFunctionName("GetAngle").SetManipulatedType("number").SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
-            obj.AddExpression("Opacity", _("Opacity"), _("Opacity"), _("Opacity"), "res/actions/opacity.png")
-                .AddParameter("object", _("Object"), "Text", false)
-                .codeExtraInformation.SetFunctionName("GetOpacity").SetIncludeFile("TextBoxObject/TextBoxObject.h");
-
             obj.AddExpression("Angle", _("Angle"), _("Angle"), _("Rotation"), "res/actions/rotate.png")
                 .AddParameter("object", _("Object"), "Text", false)
-                .codeExtraInformation.SetFunctionName("GetAngle").SetIncludeFile("TextBoxObject/TextBoxObject.h");*/
+                .codeExtraInformation.SetFunctionName("GetAngle").SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
             obj.AddStrExpression("String", _("Text"), _("Text"), _("Text"), "res/texteicon.png")
                 .AddParameter("object", _("Object"), "TextBox", false)
