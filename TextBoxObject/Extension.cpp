@@ -72,7 +72,7 @@ public:
                            _("Text"),
                            "res/actions/text24.png",
                            "res/actions/text.png")
-                .AddParameter("object", _("Object"), "Text", false)
+                .AddParameter("object", _("Object"), "TextBox", false)
                 .AddParameter("operator", _("Modification's sign"))
                 .AddParameter("string", _("Text"))
                 .codeExtraInformation.SetFunctionName("SetString").SetManipulatedType("string").SetAssociatedGetter("GetString").SetIncludeFile("TextBoxObject/TextBoxObject.h");
@@ -84,7 +84,7 @@ public:
                            _("Text"),
                            "res/conditions/text24.png",
                            "res/conditions/text.png")
-                .AddParameter("object", _("Object"), "Text", false)
+                .AddParameter("object", _("Object"), "TextBox", false)
                 .AddParameter("relationalOperator", _("Sign of the test"))
                 .AddParameter("string", _("Text to test"))
                 .codeExtraInformation.SetFunctionName("GetString").SetManipulatedType("string").SetIncludeFile("TextBoxObject/TextBoxObject.h");
@@ -96,7 +96,7 @@ public:
                            _("Font"),
                            "res/actions/font24.png",
                            "res/actions/font.png")
-                .AddParameter("object", _("Object"), "Text", false)
+                .AddParameter("object", _("Object"), "TextBox", false)
                 .AddParameter("police", _("Font"))
                 .codeExtraInformation.SetFunctionName("ChangeFont").SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
@@ -107,7 +107,7 @@ public:
                            _("Size"),
                            "res/actions/characterSize24.png",
                            "res/actions/characterSize.png")
-                .AddParameter("object", _("Object"), "Text", false)
+                .AddParameter("object", _("Object"), "TextBox", false)
                 .AddParameter("operator", _("Modification's sign"))
                 .AddParameter("expression", _("Value"))
                 .codeExtraInformation.SetFunctionName("SetCharacterSize").SetManipulatedType("number").SetAssociatedGetter("GetCharacterSize").SetIncludeFile("TextBoxObject/TextBoxObject.h");
@@ -119,7 +119,7 @@ public:
                            _("Size"),
                            "res/conditions/characterSize24.png",
                            "res/conditions/characterSize.png")
-                .AddParameter("object", _("Object"), "Text", false)
+                .AddParameter("object", _("Object"), "TextBox", false)
                 .AddParameter("relationalOperator", _("Sign of the test"))
                 .AddParameter("expression", _("Size to test"))
                 .codeExtraInformation.SetFunctionName("GetCharacterSize").SetManipulatedType("number").SetIncludeFile("TextBoxObject/TextBoxObject.h");
@@ -131,7 +131,7 @@ public:
                            _("Effects"),
                            "res/actions/color24.png",
                            "res/actions/color.png")
-                .AddParameter("object", _("Object"), "Text", false)
+                .AddParameter("object", _("Object"), "TextBox", false)
                 .AddParameter("color", _("Color"))
                 .codeExtraInformation.SetFunctionName("SetColor").SetIncludeFile("TextBoxObject/TextBoxObject.h");*/
 
@@ -142,7 +142,7 @@ public:
                            _("Rotation"),
                            "res/actions/rotate24.png",
                            "res/actions/rotate.png")
-                .AddParameter("object", _("Object"), "Text", false)
+                .AddParameter("object", _("Object"), "TextBox", false)
                 .AddParameter("operator", _("Modification's sign"))
                 .AddParameter("expression", _("Value"))
                 .codeExtraInformation.SetFunctionName("SetAngle").SetManipulatedType("number").SetAssociatedGetter("GetAngle").SetIncludeFile("TextBoxObject/TextBoxObject.h");
@@ -154,13 +154,13 @@ public:
                            _("Rotation"),
                            "res/conditions/rotate24.png",
                            "res/conditions/rotate.png")
-                .AddParameter("object", _("Object"), "Text", false)
+                .AddParameter("object", _("Object"), "TextBox", false)
                 .AddParameter("relationalOperator", _("Sign of the test"))
                 .AddParameter("expression", _("Value to test"))
                 .codeExtraInformation.SetFunctionName("GetAngle").SetManipulatedType("number").SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
             obj.AddExpression("Angle", _("Angle"), _("Angle"), _("Rotation"), "res/actions/rotate.png")
-                .AddParameter("object", _("Object"), "Text", false)
+                .AddParameter("object", _("Object"), "TextBox", false)
                 .codeExtraInformation.SetFunctionName("GetAngle").SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
             obj.AddStrExpression("String", _("Text"), _("Text"), _("Text"), "res/texteicon.png")
