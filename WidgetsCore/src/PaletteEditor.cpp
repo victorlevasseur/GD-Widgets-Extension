@@ -32,7 +32,7 @@ BEGIN_EVENT_TABLE(PaletteEditor,wxDialog)
 	//*)
 END_EVENT_TABLE()
 
-PaletteEditor::PaletteEditor(wxWindow* parent, Palette palette, std::vector<std::pair<std::string, wxString> > colorsToEdit, wxWindowID id, const wxPoint& pos, const wxSize& size)
+PaletteEditor::PaletteEditor(wxWindow* parent, Palette palette, std::vector<ColorMetadata> colorsToEdit, wxWindowID id, const wxPoint& pos, const wxSize& size)
 {
 	//(*Initialize(PaletteEditor)
 	wxFlexGridSizer* FlexGridSizer2;
@@ -90,16 +90,21 @@ PaletteEditor::PaletteEditor(wxWindow* parent, Palette palette, std::vector<std:
 	//Creating the properties
 	for(unsigned int a = 0; a < colorsToEdit.size(); a++)
     {
-        m_colorsList.push_back(colorsToEdit[a].first);
+        m_colorsList.push_back(colorsToEdit[a]);
 
-        std::string &colorName = colorsToEdit[a].first;
+        std::string &colorName = colorsToEdit[a].colorId;
 
-        m_propgrid->Append(new wxPropertyCategory(colorsToEdit[a].second, colorName));
+        m_propgrid->Append(new wxPropertyCategory(colorsToEdit[a].colorName, colorName));
         {
-            m_propgrid->AppendIn(wxString(colorName.c_str()), new wxColourProperty(_("Disabled"), "disabled", ToWxColour(m_palette.GetColor(colorName, DISABLED))));
+            //if((colorsToEdit[a].editableStateColors & ColorMetadata::DISABLED_COLOR) != 0)
+                m_propgrid->AppendIn(wxString(colorName.c_str()), new wxColourProperty(_("Disabled"), "disabled", ToWxColour(m_palette.GetColor(colorName, DISABLED))));
+
             m_propgrid->AppendIn(wxString(colorName.c_str()), new wxColourProperty(_("Enabled"), "enabled", ToWxColour(m_palette.GetColor(colorName, ENABLED))));
+
             m_propgrid->AppendIn(wxString(colorName.c_str()), new wxColourProperty(_("Hovered"), "hovered", ToWxColour(m_palette.GetColor(colorName, HOVERED))));
+
             m_propgrid->AppendIn(wxString(colorName.c_str()), new wxColourProperty(_("Focused"), "focused", ToWxColour(m_palette.GetColor(colorName, FOCUSED))));
+
             m_propgrid->AppendIn(wxString(colorName.c_str()), new wxColourProperty(_("Focused and hovered"), "focusedhovered", ToWxColour(m_palette.GetColor(colorName, FOCUSED_HOVERED))));
         }
     }
@@ -124,20 +129,20 @@ void PaletteEditor::OnokBtClick(wxCommandEvent& event)
 {
     for(int a = 0; a < m_colorsList.size(); a++)
     {
-        m_palette.SetColor(m_colorsList.at(a), DISABLED,
-                           ToSfColor(m_propgrid->GetPropertyValue(wxString(m_colorsList.at(a).c_str()) + wxString(".disabled"))));
+        m_palette.SetColor(m_colorsList.at(a).colorId, DISABLED,
+                           ToSfColor(m_propgrid->GetPropertyValue(wxString(m_colorsList.at(a).colorId.c_str()) + wxString(".disabled"))));
 
-        m_palette.SetColor(m_colorsList.at(a), ENABLED,
-                           ToSfColor(m_propgrid->GetPropertyValue(wxString(m_colorsList.at(a).c_str()) + wxString(".enabled"))));
+        m_palette.SetColor(m_colorsList.at(a).colorId, ENABLED,
+                           ToSfColor(m_propgrid->GetPropertyValue(wxString(m_colorsList.at(a).colorId.c_str()) + wxString(".enabled"))));
 
-        m_palette.SetColor(m_colorsList.at(a), HOVERED,
-                           ToSfColor(m_propgrid->GetPropertyValue(wxString(m_colorsList.at(a).c_str()) + wxString(".hovered"))));
+        m_palette.SetColor(m_colorsList.at(a).colorId, HOVERED,
+                           ToSfColor(m_propgrid->GetPropertyValue(wxString(m_colorsList.at(a).colorId.c_str()) + wxString(".hovered"))));
 
-        m_palette.SetColor(m_colorsList.at(a), FOCUSED,
-                           ToSfColor(m_propgrid->GetPropertyValue(wxString(m_colorsList.at(a).c_str()) + wxString(".focused"))));
+        m_palette.SetColor(m_colorsList.at(a).colorId, FOCUSED,
+                           ToSfColor(m_propgrid->GetPropertyValue(wxString(m_colorsList.at(a).colorId.c_str()) + wxString(".focused"))));
 
-        m_palette.SetColor(m_colorsList.at(a), FOCUSED_HOVERED,
-                           ToSfColor(m_propgrid->GetPropertyValue(wxString(m_colorsList.at(a).c_str()) + wxString(".focusedhovered"))));
+        m_palette.SetColor(m_colorsList.at(a).colorId, FOCUSED_HOVERED,
+                           ToSfColor(m_propgrid->GetPropertyValue(wxString(m_colorsList.at(a).colorId.c_str()) + wxString(".focusedhovered"))));
 
     }
 

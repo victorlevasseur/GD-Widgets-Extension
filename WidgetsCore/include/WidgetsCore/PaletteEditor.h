@@ -19,11 +19,40 @@
 namespace WCore
 {
 
+struct WIDGETS_CORE_API ColorMetadata
+{
+    typedef int EditableStateColors;
+
+    enum EditableStateColor
+    {
+        DISABLED_COLOR = 1,
+        ENABLED_COLOR = 2,
+        HOVERED_COLOR = 4,
+        FOCUSED_COLOR = 8,
+        FOCUSED_HOVERED_COLOR = 16,
+
+        UNIQUE_COLOR = 32,
+
+        ALL_STATES_COLOR = DISABLED_COLOR|ENABLED_COLOR|HOVERED_COLOR|FOCUSED_COLOR|FOCUSED_HOVERED_COLOR,
+    };
+
+    ColorMetadata(const std::string &colorId_, wxString colorName_, EditableStateColors editableStateColors_)
+    {
+        colorId = colorId_;
+        colorName = colorName_;
+        editableStateColors = editableStateColors_;
+    }
+
+    std::string colorId;
+    wxString colorName;
+    EditableStateColors editableStateColors;
+};
+
 class WIDGETS_CORE_API PaletteEditor: public wxDialog
 {
 	public:
 
-		PaletteEditor(wxWindow* parent, Palette palette, std::vector<std::pair<std::string, wxString> > colorsToEdit, wxWindowID id=wxID_ANY, const wxPoint& pos=wxDefaultPosition, const wxSize& size=wxDefaultSize);
+		PaletteEditor(wxWindow* parent, Palette palette, std::vector< ColorMetadata > colorsToEdit, wxWindowID id=wxID_ANY, const wxPoint& pos=wxDefaultPosition, const wxSize& size=wxDefaultSize);
 		virtual ~PaletteEditor();
 
 		Palette GetPalette() const;
@@ -53,7 +82,7 @@ class WIDGETS_CORE_API PaletteEditor: public wxDialog
 		DECLARE_EVENT_TABLE()
 
 		Palette m_palette;
-		std::vector<std::string> m_colorsList;
+		std::vector<ColorMetadata> m_colorsList;
 
 		wxPropertyGrid *m_propgrid;
 };

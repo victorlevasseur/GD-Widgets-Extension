@@ -100,7 +100,7 @@ public:
                 .AddParameter("police", _("Font"))
                 .codeExtraInformation.SetFunctionName("ChangeFont").SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
-            /*obj.AddAction("Size",
+            obj.AddAction("Size",
                            _("Size"),
                            _("Modify the size of the text."),
                            _("Do _PARAM1__PARAM2_ to the size of the text of _PARAM0_"),
@@ -124,7 +124,7 @@ public:
                 .AddParameter("expression", _("Size to test"))
                 .codeExtraInformation.SetFunctionName("GetCharacterSize").SetManipulatedType("number").SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
-            obj.AddAction("ChangeColor",
+            /*obj.AddAction("ChangeColor",
                            _("Color"),
                            _("Change the color of the text. The color is white by default."),
                            _("Change color of _PARAM0_ to _PARAM1_"),

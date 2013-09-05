@@ -227,12 +227,12 @@ void TextBoxObjectEditor::OncancelBtClick(wxCommandEvent& event)
 
 void TextBoxObjectEditor::OncolorBtClick(wxCommandEvent& event)
 {
-    std::vector<std::pair<std::string, wxString> > colorsToEdit;
-    colorsToEdit.push_back(std::pair<std::string, wxString>("text", _("Text")));
-    colorsToEdit.push_back(std::pair<std::string, wxString>("placeholder", _("Placeholder")));
-    colorsToEdit.push_back(std::pair<std::string, wxString>("background", _("Background")));
-    colorsToEdit.push_back(std::pair<std::string, wxString>("border", _("Border")));
-    colorsToEdit.push_back(std::pair<std::string, wxString>("selection", _("Selection")));
+    std::vector<WCore::ColorMetadata> colorsToEdit;
+    colorsToEdit.push_back(WCore::ColorMetadata("text", _("Text"), WCore::ColorMetadata::ALL_STATES_COLOR));
+    colorsToEdit.push_back(WCore::ColorMetadata("placeholder", _("Placeholder"), WCore::ColorMetadata::ALL_STATES_COLOR));
+    colorsToEdit.push_back(WCore::ColorMetadata("background", _("Background"), WCore::ColorMetadata::ALL_STATES_COLOR));
+    colorsToEdit.push_back(WCore::ColorMetadata("border", _("Border"), WCore::ColorMetadata::ALL_STATES_COLOR));
+    colorsToEdit.push_back(WCore::ColorMetadata("selection", _("Selection"), WCore::ColorMetadata::ALL_STATES_COLOR));
 
     WCore::PaletteEditor editor(this, m_palette, colorsToEdit);
 
