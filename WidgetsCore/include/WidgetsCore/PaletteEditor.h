@@ -25,15 +25,15 @@ struct WIDGETS_CORE_API ColorMetadata
 
     enum EditableStateColor
     {
-        DISABLED_COLOR = 1,
-        ENABLED_COLOR = 2,
-        HOVERED_COLOR = 4,
-        FOCUSED_COLOR = 8,
-        FOCUSED_HOVERED_COLOR = 16,
+        COLOR_FOR_DISABLED = 1,
+        COLOR_FOR_ENABLED = 2,
+        COLOR_FOR_HOVERED = 4,
+        COLOR_FOR_FOCUSED = 8,
+        COLOR_FOR_FOCUSEDHOVERED = 16,
 
-        UNIQUE_COLOR = 32,
+        UNIQUE_COLOR_FOR_ALL = 32,
 
-        ALL_STATES_COLOR = DISABLED_COLOR|ENABLED_COLOR|HOVERED_COLOR|FOCUSED_COLOR|FOCUSED_HOVERED_COLOR,
+        COLOR_FOR_EACH = COLOR_FOR_DISABLED|COLOR_FOR_ENABLED|COLOR_FOR_HOVERED|COLOR_FOR_FOCUSED|COLOR_FOR_FOCUSEDHOVERED,
     };
 
     ColorMetadata(const std::string &colorId_, wxString colorName_, EditableStateColors editableStateColors_)
