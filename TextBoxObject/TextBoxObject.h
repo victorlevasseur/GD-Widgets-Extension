@@ -137,6 +137,18 @@ public :
     float GetCharacterSize() const;
     void SetCharacterSize(float _size);
 
+    void SetBorderThickness(int thickness);
+    int GetBorderThickness() const;
+
+    void AllowTextSelection(bool allow);
+    bool IsAllowingTextSelection() const;
+
+    void SetHideCharacter(const std::string &character);
+    std::string GetHideCharacter() const;
+
+    void SetPlaceholder(const std::string &placeholder);
+    std::string GetPlaceholder() const;
+
     virtual std::vector<Polygon2d> GetHitBoxes() const;
 
     virtual void UpdateTime(float timeElapsed);

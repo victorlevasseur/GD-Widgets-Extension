@@ -47,6 +47,7 @@ freely, subject to the following restrictions:
 
 #if defined(GD_IDE_ONLY)
 #include "GDCore/IDE/ArbitraryResourceWorker.h"
+#include "GDCore/CommonTools.h"
 namespace gd { class MainFrameWrapper; }
 #endif
 
@@ -259,7 +260,7 @@ void TextBoxObject::ExposeResources(gd::ArbitraryResourceWorker & worker)
 
 bool TextBoxObject::GenerateThumbnail(const gd::Project & project, wxBitmap & thumbnail) const
 {
-    thumbnail = wxBitmap("CppPlatform/Extensions/texticon.png", wxBITMAP_TYPE_ANY);
+    thumbnail = wxBitmap("CppPlatform/Extensions/TextBox24.png", wxBITMAP_TYPE_ANY);
 
     return true;
 }
@@ -434,20 +435,110 @@ void RuntimeTextBoxObject::SetCharacterSize(float _size)
     m_textBox.SetCharacterSize(_size);
 }
 
+void RuntimeTextBoxObject::SetBorderThickness(int thickness)
+{
+    m_textBox.SetBorderThickness(thickness);
+}
+
+int RuntimeTextBoxObject::GetBorderThickness() const
+{
+    return m_textBox.GetBorderThickness();
+}
+
+void RuntimeTextBoxObject::AllowTextSelection(bool allow)
+{
+    m_textBox.AllowTextSelection(allow);
+}
+
+bool RuntimeTextBoxObject::IsAllowingTextSelection() const
+{
+    return m_textBox.IsAllowingTextSelection();
+}
+
+void RuntimeTextBoxObject::SetHideCharacter(const std::string &character)
+{
+    sf::String hideCharStr(character);
+    if(hideCharStr.isEmpty())
+    {
+        m_textBox.SetHideCharacter(0);
+    }
+    else
+    {
+        m_textBox.SetHideCharacter(hideCharStr[0]);
+    }
+
+}
+
+std::string RuntimeTextBoxObject::GetHideCharacter() const
+{
+    if(m_textBox.GetHideCharacter() == 0)
+        return std::string();
+
+    sf::String hideCharStr(m_textBox.GetHideCharacter());
+    return hideCharStr.toAnsiString();
+}
+
+void RuntimeTextBoxObject::SetPlaceholder(const std::string &placeholder)
+{
+    m_textBox.SetPlaceholder(placeholder);
+}
+
+std::string RuntimeTextBoxObject::GetPlaceholder() const
+{
+    return m_textBox.GetPlaceholder();
+}
+
 #if defined(GD_IDE_ONLY)
 void RuntimeTextBoxObject::GetPropertyForDebugger(unsigned int propertyNb, string & name, string & value) const
 {
-
+    switch (propertyNb)
+    {
+    case 0:
+        name = _("String");
+        value = GetString();
+        break;
+    case 1:
+        name = _("Hide character");
+        value = GetHideCharacter().empty() ? "No hide character" : GetHideCharacter();
+        break;
+    case 2:
+        name = _("Placeholder");
+        value = GetPlaceholder();
+        break;
+    case 3:
+        name = _("Character size");
+        value = gd::ToString(GetCharacterSize());
+        break;
+    }
 }
 
 bool RuntimeTextBoxObject::ChangeProperty(unsigned int propertyNb, string newValue)
 {
-    return false;
+    switch (propertyNb)
+    {
+    case 0:
+        SetString(newValue);
+        break;
+    case 1:
+        if(newValue == "" || newValue.empty())
+            SetHideCharacter(std::string());
+        else
+            SetHideCharacter(newValue);
+        break;
+    case 2:
+        SetPlaceholder(newValue);
+        break;
+    case 3:
+        SetCharacterSize(gd::ToDouble(newValue));
+        break;
+    }
+
+    return true;
 }
 
 unsigned int RuntimeTextBoxObject::GetNumberOfProperties() const
 {
-    return 0;
+    return 4;
 }
 #endif
 

@@ -53,9 +53,9 @@ public:
         //Declaration of all objects available
         {
             gd::ObjectMetadata & obj = AddObject("TextBox",
-                       _("TextBox"),
+                       _("Text Box"),
                        _("Allows the user to edit a text"),
-                       "CppPlatform/Extensions/texticon.png",
+                       "CppPlatform/Extensions/TextBox.png",
                        &CreateTextBoxObject,
                        &DestroyTextBoxObject);
 
@@ -67,7 +67,7 @@ public:
 
             obj.AddAction("String",
                            _("Modify the text"),
-                           _("Modify the text of a Text object."),
+                           _("Modify the text of a Text Box object."),
                            _("Do _PARAM1__PARAM2_ to the text of _PARAM0_"),
                            _("Text"),
                            "res/actions/text24.png",
@@ -79,7 +79,7 @@ public:
 
             obj.AddCondition("String",
                            _("Test the text"),
-                           _("Test the text of a Text object."),
+                           _("Test the text of a Text Box object."),
                            _("The text of _PARAM0_ is _PARAM1__PARAM2_"),
                            _("Text"),
                            "res/conditions/text24.png",
@@ -88,6 +88,10 @@ public:
                 .AddParameter("relationalOperator", _("Sign of the test"))
                 .AddParameter("string", _("Text to test"))
                 .codeExtraInformation.SetFunctionName("GetString").SetManipulatedType("string").SetIncludeFile("TextBoxObject/TextBoxObject.h");
+
+            obj.AddStrExpression("String", _("Text"), _("Text"), _("Text"), "res/texteicon.png")
+                .AddParameter("object", _("Object"), "TextBox", false)
+                .codeExtraInformation.SetFunctionName("GetString").SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
             obj.AddAction("Font",
                            _("Font"),
@@ -126,7 +130,7 @@ public:
 
             obj.AddAction("Angle",
                            _("Angle"),
-                           _("Modify the angle of a Text object."),
+                           _("Modify the angle of a Text Box object."),
                            _("Do _PARAM1__PARAM2_ to the angle of _PARAM0_"),
                            _("Rotation"),
                            "res/actions/rotate24.png",
@@ -138,7 +142,7 @@ public:
 
             obj.AddCondition("Angle",
                            _("Angle"),
-                           _("Test the value of the angle of a text object."),
+                           _("Test the value of the angle of a Text Box object."),
                            _("The angle of _PARAM0_ is _PARAM1__PARAM2_"),
                            _("Rotation"),
                            "res/conditions/rotate24.png",
@@ -151,10 +155,6 @@ public:
             obj.AddExpression("Angle", _("Angle"), _("Angle"), _("Rotation"), "res/actions/rotate.png")
                 .AddParameter("object", _("Object"), "TextBox", false)
                 .codeExtraInformation.SetFunctionName("GetAngle").SetIncludeFile("TextBoxObject/TextBoxObject.h");
-
-            obj.AddStrExpression("String", _("Text"), _("Text"), _("Text"), "res/texteicon.png")
-                .AddParameter("object", _("Object"), "TextBox", false)
-                .codeExtraInformation.SetFunctionName("GetString").SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
         #endif
         }
