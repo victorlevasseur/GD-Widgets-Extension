@@ -75,8 +75,8 @@ public :
     inline std::string GetFontFilename() const {return fontName; };
     void SetFontFilename(const std::string & fontFilename) { fontName = fontFilename; };
 
-    unsigned int GetCharacterSize() const;
-    void SetCharacterSize(unsigned int _size);
+    float GetCharacterSize() const;
+    void SetCharacterSize(float _size);
 
     void SetBorderThickness(int thickness);
     int GetBorderThickness() const;
@@ -132,7 +132,10 @@ public :
     void SetString(const std::string &str);
 
     void ChangeFont(const std::string & fontFilename);
-    inline std::string GetFontFilename() const {return fontName; };
+    inline std::string GetFontFilename() const {return fontName;};
+
+    float GetCharacterSize() const;
+    void SetCharacterSize(float _size);
 
     virtual std::vector<Polygon2d> GetHitBoxes() const;
 

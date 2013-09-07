@@ -72,8 +72,8 @@ void TextBoxObject::DoLoadFromXml(gd::Project & project, const TiXmlElement * el
 
     if (elem->FirstChildElement("CharacterSize"))
     {
-        int value = 30;
-        elem->FirstChildElement("CharacterSize")->QueryIntAttribute("value", &value);
+        float value = 30.f;
+        elem->FirstChildElement("CharacterSize")->QueryFloatAttribute("value", &value);
 
         SetCharacterSize(value);
     }
@@ -123,12 +123,12 @@ void TextBoxObject::SetString(const sf::String &str)
     m_textBox.SetText(str);
 }
 
-unsigned int TextBoxObject::GetCharacterSize() const
+float TextBoxObject::GetCharacterSize() const
 {
     return m_textBox.GetCharacterSize();
 }
 
-void TextBoxObject::SetCharacterSize(unsigned int _size)
+void TextBoxObject::SetCharacterSize(float _size)
 {
     m_textBox.SetCharacterSize(_size);
 }
@@ -229,7 +229,7 @@ void TextBoxObject::DoSaveToXml(TiXmlElement * elem)
 
     TiXmlElement * charSizeElem = new TiXmlElement( "CharacterSize" );
     elem->LinkEndChild( charSizeElem );
-    charSizeElem->SetAttribute("value", GetCharacterSize());
+    charSizeElem->SetDoubleAttribute("value", GetCharacterSize());
 
     TiXmlElement * borderElem = new TiXmlElement( "BorderThickness" );
     elem->LinkEndChild( borderElem );
@@ -422,6 +422,16 @@ void RuntimeTextBoxObject::ChangeFont(const std::string & fontName_)
         m_textBox.SetFont(*FontManager::GetInstance()->GetFont(fontName));
         OnPositionChanged();
     }
+}
+
+float RuntimeTextBoxObject::GetCharacterSize() const
+{
+    return m_textBox.GetCharacterSize();
+}
+
+void RuntimeTextBoxObject::SetCharacterSize(float _size)
+{
+    m_textBox.SetCharacterSize(_size);
 }
 
 #if defined(GD_IDE_ONLY)

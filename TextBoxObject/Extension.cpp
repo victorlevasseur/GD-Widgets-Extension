@@ -124,17 +124,6 @@ public:
                 .AddParameter("expression", _("Size to test"))
                 .codeExtraInformation.SetFunctionName("GetCharacterSize").SetManipulatedType("number").SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
-            /*obj.AddAction("ChangeColor",
-                           _("Color"),
-                           _("Change the color of the text. The color is white by default."),
-                           _("Change color of _PARAM0_ to _PARAM1_"),
-                           _("Effects"),
-                           "res/actions/color24.png",
-                           "res/actions/color.png")
-                .AddParameter("object", _("Object"), "TextBox", false)
-                .AddParameter("color", _("Color"))
-                .codeExtraInformation.SetFunctionName("SetColor").SetIncludeFile("TextBoxObject/TextBoxObject.h");*/
-
             obj.AddAction("Angle",
                            _("Angle"),
                            _("Modify the angle of a Text object."),

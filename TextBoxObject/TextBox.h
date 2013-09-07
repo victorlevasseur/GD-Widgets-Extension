@@ -31,8 +31,8 @@ public:
     void SetFont(const sf::Font &font);
     const sf::Font* GetFont() const;
 
-    void SetCharacterSize(unsigned int s);
-    unsigned int GetCharacterSize() const;
+    void SetCharacterSize(float s);
+    float GetCharacterSize() const;
 
     void SetBorderThickness(int thickness);
     int GetBorderThickness() const;

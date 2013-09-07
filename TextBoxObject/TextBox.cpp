@@ -184,13 +184,13 @@ const sf::Font* TextBox::GetFont() const
     return m_text.getFont();
 }
 
-void TextBox::SetCharacterSize(unsigned int s)
+void TextBox::SetCharacterSize(float s)
 {
     m_text.setCharacterSize(s);
     UpdateDrawables();
 }
 
-unsigned int TextBox::GetCharacterSize() const
+float TextBox::GetCharacterSize() const
 {
     return m_text.getCharacterSize();
 }
