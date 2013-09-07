@@ -65,6 +65,8 @@ public:
 
             obj.SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
+            /** String **/
+
             obj.AddAction("String",
                            _("Modify the text"),
                            _("Modify the text of a Text Box object."),
@@ -93,6 +95,8 @@ public:
                 .AddParameter("object", _("Object"), "TextBox", false)
                 .codeExtraInformation.SetFunctionName("GetString").SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
+            /** Hide Character **/
+
             obj.AddAction("HideCharacter",
                            _("Modify the hide character"),
                            _("Modify the hide character (character hiding the text) of a Text Box object.\nPut an empty hide character to disable it."),
@@ -119,6 +123,8 @@ public:
             obj.AddStrExpression("HideCharacter", _("Hide character"), _("Hide character (character hiding the string in the Text Box"), _("Text"), "res/texteicon.png")
                 .AddParameter("object", _("Object"), "TextBox", false)
                 .codeExtraInformation.SetFunctionName("GetHideCharacter").SetIncludeFile("TextBoxObject/TextBoxObject.h");
+
+            /** Placeholder **/
 
             obj.AddAction("Placeholder",
                            _("Modify the placeholder"),
@@ -148,6 +154,49 @@ public:
                 .AddParameter("object", _("Object"), "TextBox", false)
                 .codeExtraInformation.SetFunctionName("GetPlaceholder").SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
+            /** Allow Text Selection **/
+
+            obj.AddAction("AllowTextSelection",
+                           _("Enable or disable the text selection"),
+                           _("Enable or disable the text selection.\nIf disabled, you can move the cursor but can't select a text by dragging."),
+                           _("Enable the text selection of _PARAM0_ ? _PARAM1_"),
+                           _("Selection/Cursor"),
+                           "res/actions/text24.png",
+                           "res/actions/text.png")
+                .AddParameter("object", _("Object"), "TextBox", false)
+                .AddParameter("yesorno", _("Enable ?"))
+                .codeExtraInformation.SetFunctionName("AllowTextSelection").SetIncludeFile("TextBoxObject/TextBoxObject.h");
+
+            obj.AddCondition("AllowTextSelection",
+                           _("Test if the text selection is enabled"),
+                           _("Test if the text selection is enabled"),
+                           _("The text selection of _PARAM0_ is enabled"),
+                           _("Selection/Cursor"),
+                           "res/conditions/text24.png",
+                           "res/conditions/text.png")
+                .AddParameter("object", _("Object"), "TextBox", false)
+                .codeExtraInformation.SetFunctionName("IsAllowingTextSelection").SetIncludeFile("TextBoxObject/TextBoxObject.h");
+
+            /** Selected String **/
+
+            obj.AddCondition("SelectedString",
+                           _("Test the selected text"),
+                           _("Test the selected text of a Text Box object."),
+                           _("The selected text of _PARAM0_ is _PARAM1__PARAM2_"),
+                           _("Selection/Cursor"),
+                           "res/conditions/text24.png",
+                           "res/conditions/text.png")
+                .AddParameter("object", _("Object"), "TextBox", false)
+                .AddParameter("relationalOperator", _("Sign of the test"))
+                .AddParameter("string", _("Text to test"))
+                .codeExtraInformation.SetFunctionName("GetSelectedString").SetManipulatedType("string").SetIncludeFile("TextBoxObject/TextBoxObject.h");
+
+            obj.AddStrExpression("SelectedString", _("Selected text"), _("Selected text"), _("Selection/Cursor"), "res/texteicon.png")
+                .AddParameter("object", _("Object"), "TextBox", false)
+                .codeExtraInformation.SetFunctionName("GetSelectedString").SetIncludeFile("TextBoxObject/TextBoxObject.h");
+
+            /** Font **/
+
             obj.AddAction("Font",
                            _("Font"),
                            _("Modify the font of the text."),
@@ -158,6 +207,8 @@ public:
                 .AddParameter("object", _("Object"), "TextBox", false)
                 .AddParameter("police", _("Font"))
                 .codeExtraInformation.SetFunctionName("ChangeFont").SetIncludeFile("TextBoxObject/TextBoxObject.h");
+
+            /** Character size **/
 
             obj.AddAction("Size",
                            _("Size"),
@@ -182,6 +233,8 @@ public:
                 .AddParameter("relationalOperator", _("Sign of the test"))
                 .AddParameter("expression", _("Size to test"))
                 .codeExtraInformation.SetFunctionName("GetCharacterSize").SetManipulatedType("number").SetIncludeFile("TextBoxObject/TextBoxObject.h");
+
+            /** Angle **/
 
             obj.AddAction("Angle",
                            _("Angle"),

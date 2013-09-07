@@ -415,6 +415,11 @@ void RuntimeTextBoxObject::SetString(const std::string &str)
     m_textBox.SetText(sf::String(str));
 }
 
+std::string RuntimeTextBoxObject::GetSelectedString() const
+{
+    return m_textBox.GetSelectedText();
+}
+
 void RuntimeTextBoxObject::ChangeFont(const std::string & fontName_)
 {
     if (!m_textBox.GetFont() || fontName_ != fontName )

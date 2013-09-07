@@ -131,6 +131,8 @@ public :
     std::string GetString() const;
     void SetString(const std::string &str);
 
+    std::string GetSelectedString() const;
+
     void ChangeFont(const std::string & fontFilename);
     inline std::string GetFontFilename() const {return fontName;};
 
