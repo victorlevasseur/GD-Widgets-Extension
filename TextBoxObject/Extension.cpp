@@ -45,7 +45,7 @@ public:
     {
         SetExtensionInformation("TextBoxObject",
                               _("Widgets - TextBox object"),
-                              _("Provides an object to allow the user to enter and edit a line of text."),
+                              _("Part of the Widgets extension.\nProvides an object to allow the user to enter and edit a line of text."),
                               "Victor Levasseur",
                               "zlib/libpng License ( Open Source )");
 
@@ -92,6 +92,61 @@ public:
             obj.AddStrExpression("String", _("Text"), _("Text"), _("Text"), "res/texteicon.png")
                 .AddParameter("object", _("Object"), "TextBox", false)
                 .codeExtraInformation.SetFunctionName("GetString").SetIncludeFile("TextBoxObject/TextBoxObject.h");
+
+            obj.AddAction("HideCharacter",
+                           _("Modify the hide character"),
+                           _("Modify the hide character (character hiding the text) of a Text Box object.\nPut an empty hide character to disable it."),
+                           _("Set _PARAM1_ as the hide character of _PARAM0_"),
+                           _("Text"),
+                           "res/actions/text24.png",
+                           "res/actions/text.png")
+                .AddParameter("object", _("Object"), "TextBox", false)
+                .AddParameter("string", _("Hide Character"))
+                .codeExtraInformation.SetFunctionName("SetHideCharacter").SetIncludeFile("TextBoxObject/TextBoxObject.h");
+
+            obj.AddCondition("HideCharacter",
+                           _("Test the hide character"),
+                           _("Test the hide character (character hiding the text) of a Text Box object."),
+                           _("The hide character of _PARAM0_ is _PARAM1__PARAM2_"),
+                           _("Text"),
+                           "res/conditions/text24.png",
+                           "res/conditions/text.png")
+                .AddParameter("object", _("Object"), "TextBox", false)
+                .AddParameter("relationalOperator", _("Sign of the test"))
+                .AddParameter("string", _("Hide character to test"))
+                .codeExtraInformation.SetFunctionName("GetHideCharacter").SetManipulatedType("string").SetIncludeFile("TextBoxObject/TextBoxObject.h");
+
+            obj.AddStrExpression("HideCharacter", _("Hide character"), _("Hide character (character hiding the string in the Text Box"), _("Text"), "res/texteicon.png")
+                .AddParameter("object", _("Object"), "TextBox", false)
+                .codeExtraInformation.SetFunctionName("GetHideCharacter").SetIncludeFile("TextBoxObject/TextBoxObject.h");
+
+            obj.AddAction("Placeholder",
+                           _("Modify the placeholder"),
+                           _("Modify the placeholder (text shown when there is no text) of a Text Box object."),
+                           _("Do _PARAM1__PARAM2_ to the placeholder of _PARAM0_"),
+                           _("Text"),
+                           "res/actions/text24.png",
+                           "res/actions/text.png")
+                .AddParameter("object", _("Object"), "TextBox", false)
+                .AddParameter("operator", _("Modification's sign"))
+                .AddParameter("string", _("Placeholder"))
+                .codeExtraInformation.SetFunctionName("SetPlaceholder").SetManipulatedType("string").SetAssociatedGetter("GetPlaceholder").SetIncludeFile("TextBoxObject/TextBoxObject.h");
+
+            obj.AddCondition("Placeholder",
+                           _("Test the placeholder"),
+                           _("Test the placeholder (text shown when there is no text) of a Text Box object."),
+                           _("The placeholder of _PARAM0_ is _PARAM1__PARAM2_"),
+                           _("Text"),
+                           "res/conditions/text24.png",
+                           "res/conditions/text.png")
+                .AddParameter("object", _("Object"), "TextBox", false)
+                .AddParameter("relationalOperator", _("Sign of the test"))
+                .AddParameter("string", _("Placeholder to test"))
+                .codeExtraInformation.SetFunctionName("GetPlaceholder").SetManipulatedType("string").SetIncludeFile("TextBoxObject/TextBoxObject.h");
+
+            obj.AddStrExpression("Placeholder", _("Placeholder"), _("Placeholder (text shown when the Text Box is empty)"), _("Text"), "res/texteicon.png")
+                .AddParameter("object", _("Object"), "TextBox", false)
+                .codeExtraInformation.SetFunctionName("GetPlaceholder").SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
             obj.AddAction("Font",
                            _("Font"),
@@ -162,10 +217,8 @@ public:
         GD_COMPLETE_EXTENSION_COMPILATION_INFORMATION();
 
         #if defined(GD_IDE_ONLY)
-
-        //supplementaryIncludeDirectories.push_back("CppPlatform/Extensions/include/WidgetsCommon");
         supplementaryLibFiles.push_back("libWidgetsCore.dll.a");
-        supplementaryLibFiles.push_back("libSFWidgets.a");
+        supplementaryRuntimeFiles.push_back(std::pair<std::string, std::string>("Windows", "CppPlatform/Extensions/Runtime/WidgetsCore.dll"));
 
         #endif // defined
     };

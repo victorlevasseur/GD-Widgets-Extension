@@ -229,6 +229,7 @@ sf::Uint32 TextBox::GetHideCharacter() const
 void TextBox::SetPlaceholder(sf::String placeholder)
 {
     m_placeholder = placeholder;
+    ComputeVisibleString();
 }
 
 sf::String TextBox::GetPlaceholder() const

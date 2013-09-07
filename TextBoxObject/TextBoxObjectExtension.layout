@@ -1,29 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Release" />
-	<File name="Extension.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="TextBoxObjectEditor.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="7287" topLine="131" />
-		</Cursor>
-	</File>
-	<File name="TextBox.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4092" topLine="171" />
-		</Cursor>
-	</File>
-	<File name="TextBox.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="510" topLine="11" />
-		</Cursor>
-	</File>
-	<File name="TextBoxObject.cpp" open="1" top="1" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="14774" topLine="484" />
-		</Cursor>
-	</File>
-	<File name="TextBoxObject.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4516" topLine="123" />
+			<Cursor1 position="2203" topLine="77" />
 		</Cursor>
 	</File>
 	<File name="TextBoxObjectEditor.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -31,9 +11,29 @@
 			<Cursor1 position="1355" topLine="24" />
 		</Cursor>
 	</File>
-	<File name="TextBoxObjectEditor.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="TextBoxObject.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2203" topLine="77" />
+			<Cursor1 position="4516" topLine="123" />
+		</Cursor>
+	</File>
+	<File name="TextBoxObject.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8002" topLine="262" />
+		</Cursor>
+	</File>
+	<File name="TextBox.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="510" topLine="11" />
+		</Cursor>
+	</File>
+	<File name="TextBox.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4092" topLine="171" />
+		</Cursor>
+	</File>
+	<File name="Extension.cpp" open="1" top="1" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7895" topLine="59" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
