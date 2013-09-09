@@ -132,6 +132,11 @@ public :
     void SetString(const std::string &str);
 
     std::string GetSelectedString() const;
+    int GetSelectionBegin() const;
+    int GetSelectionEnd() const;
+
+    void Select(int position);
+    void Select(int begin_, int end_);
 
     void ChangeFont(const std::string & fontFilename);
     inline std::string GetFontFilename() const {return fontName;};

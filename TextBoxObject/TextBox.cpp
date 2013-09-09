@@ -118,8 +118,8 @@ void TextBox::Select(int position)
 
 void TextBox::Select(int selectionBegin, int selectionEnd)
 {
-    m_selectionBegin = selectionBegin;
-    m_selectionEnd = selectionEnd;
+    m_selectionBegin = std::max(0, selectionBegin);
+    m_selectionEnd = std::min((unsigned int)selectionEnd, m_string.getSize());
 
     ResetCursorTimer();
     ComputeCursorPosition();
@@ -167,7 +167,8 @@ sf::String TextBox::GetText() const
 sf::String TextBox::GetSelectedText() const
 {
     sf::String selectedText(m_string);
-    selectedText.erase(m_selectionEnd, m_string.getSize() - m_selectionEnd);
+    if(m_selectionEnd < m_string.getSize())
+        selectedText.erase(m_selectionEnd, m_string.getSize() - m_selectionEnd);
     selectedText.erase(0, m_selectionBegin);
 
     return selectedText;

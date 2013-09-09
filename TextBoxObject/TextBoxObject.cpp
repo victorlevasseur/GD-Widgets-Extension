@@ -420,6 +420,26 @@ std::string RuntimeTextBoxObject::GetSelectedString() const
     return m_textBox.GetSelectedText();
 }
 
+int RuntimeTextBoxObject::GetSelectionBegin() const
+{
+    return m_textBox.GetSelectionBegin();
+}
+
+int RuntimeTextBoxObject::GetSelectionEnd() const
+{
+    return m_textBox.GetSelectionEnd();
+}
+
+void RuntimeTextBoxObject::Select(int position)
+{
+    m_textBox.Select(position);
+}
+
+void RuntimeTextBoxObject::Select(int begin_, int end_)
+{
+    m_textBox.Select(begin_, end_);
+}
+
 void RuntimeTextBoxObject::ChangeFont(const std::string & fontName_)
 {
     if (!m_textBox.GetFont() || fontName_ != fontName )

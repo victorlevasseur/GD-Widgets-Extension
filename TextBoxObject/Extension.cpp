@@ -195,6 +195,39 @@ public:
                 .AddParameter("object", _("Object"), "TextBox", false)
                 .codeExtraInformation.SetFunctionName("GetSelectedString").SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
+            /** Selection **/
+
+            obj.AddAction("MoveCursor",
+                           _("Move the cursor"),
+                           _("Move the cursor at a specific position."),
+                           _("Move the cursor of _PARAM0_ to _PARAM1_"),
+                           _("Selection/Cursor"),
+                           "res/actions/text24.png",
+                           "res/actions/text.png")
+                .AddParameter("object", _("Object"), "TextBox", false)
+                .AddParameter("expression", _("Position"))
+                .codeExtraInformation.SetFunctionName("Select").SetIncludeFile("TextBoxObject/TextBoxObject.h");
+
+            obj.AddAction("ChangeSelection",
+                           _("Change the selection position"),
+                           _("Change the selection position (beginning and ending)."),
+                           _("Set the selection of _PARAM0_ from _PARAM1_ to _PARAM2_"),
+                           _("Selection/Cursor"),
+                           "res/actions/text24.png",
+                           "res/actions/text.png")
+                .AddParameter("object", _("Object"), "TextBox", false)
+                .AddParameter("expression", _("Begin position"))
+                .AddParameter("expression", _("End position"))
+                .codeExtraInformation.SetFunctionName("Select").SetIncludeFile("TextBoxObject/TextBoxObject.h");
+
+            obj.AddExpression("SelectionBegin", _("Selection begin"), _("Selected begin position"), _("Selection/Cursor"), "res/texteicon.png")
+                .AddParameter("object", _("Object"), "TextBox", false)
+                .codeExtraInformation.SetFunctionName("GetSelectionBegin").SetIncludeFile("TextBoxObject/TextBoxObject.h");
+
+            obj.AddExpression("SelectionEnd", _("Selection end"), _("Selected end position"), _("Selection/Cursor"), "res/texteicon.png")
+                .AddParameter("object", _("Object"), "TextBox", false)
+                .codeExtraInformation.SetFunctionName("GetSelectionEnd").SetIncludeFile("TextBoxObject/TextBoxObject.h");
+
             /** Font **/
 
             obj.AddAction("Font",
