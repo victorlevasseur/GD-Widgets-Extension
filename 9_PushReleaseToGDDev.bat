@@ -11,4 +11,7 @@ rem Resources
 copy "E:\Developpement\Projets\Game Develop\GDSDK\Extensions\Widgets\TextBoxObject\TextBox.png" "E:\Developpement\Projets\Game Develop\GDSDK\Binaries\Output\Release\CppPlatform\Extensions\TextBox.png"
 copy "E:\Developpement\Projets\Game Develop\GDSDK\Extensions\Widgets\TextBoxObject\TextBox24.png" "E:\Developpement\Projets\Game Develop\GDSDK\Binaries\Output\Release\CppPlatform\Extensions\TextBox24.png"
 
+rem Translations
+xcopy "E:\Developpement\Projets\Game Develop\GDSDK\Extensions\Widgets\Translations\fr_FR\*.mo" "E:\Developpement\Projets\Game Develop\GDSDK\Binaries\Output\Release\locale\fr_FR"
+
 pause

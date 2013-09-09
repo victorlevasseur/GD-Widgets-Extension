@@ -105,7 +105,7 @@ public:
                            "res/actions/text24.png",
                            "res/actions/text.png")
                 .AddParameter("object", _("Object"), "TextBox", false)
-                .AddParameter("string", _("Hide Character"))
+                .AddParameter("string", _("Hide character"))
                 .codeExtraInformation.SetFunctionName("SetHideCharacter").SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
             obj.AddCondition("HideCharacter",
@@ -120,7 +120,7 @@ public:
                 .AddParameter("string", _("Hide character to test"))
                 .codeExtraInformation.SetFunctionName("GetHideCharacter").SetManipulatedType("string").SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
-            obj.AddStrExpression("HideCharacter", _("Hide character"), _("Hide character (character hiding the string in the Text Box"), _("Text"), "res/texteicon.png")
+            obj.AddStrExpression("HideCharacter", _("Hide character"), _("Hide character (character hiding the string in the Text Box)"), _("Text"), "res/texteicon.png")
                 .AddParameter("object", _("Object"), "TextBox", false)
                 .codeExtraInformation.SetFunctionName("GetHideCharacter").SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
@@ -231,9 +231,9 @@ public:
             /** Font **/
 
             obj.AddAction("Font",
-                           _("Font"),
-                           _("Modify the font of the text."),
-                           _("Change font of _PARAM0_ to _PARAM1_"),
+                           _("Modify the text font"),
+                           _("Modify the text font of a Text Box object."),
+                           _("Change text font of _PARAM0_ to _PARAM1_"),
                            _("Font"),
                            "res/actions/font24.png",
                            "res/actions/font.png")
@@ -244,10 +244,10 @@ public:
             /** Character size **/
 
             obj.AddAction("Size",
-                           _("Size"),
-                           _("Modify the size of the text."),
-                           _("Do _PARAM1__PARAM2_ to the size of the text of _PARAM0_"),
-                           _("Size"),
+                           _("Change the font size"),
+                           _("Modify the font size of a Text Box object."),
+                           _("Do _PARAM1__PARAM2_ to the font size of _PARAM0_"),
+                           _("Font"),
                            "res/actions/characterSize24.png",
                            "res/actions/characterSize.png")
                 .AddParameter("object", _("Object"), "TextBox", false)
@@ -256,10 +256,10 @@ public:
                 .codeExtraInformation.SetFunctionName("SetCharacterSize").SetManipulatedType("number").SetAssociatedGetter("GetCharacterSize").SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
             obj.AddCondition("Size",
-                           _("Size"),
-                           _("Test the size of the text"),
-                           _("The size of the text of _PARAM0_ is _PARAM1__PARAM2_"),
-                           _("Size"),
+                           _("Test the font size"),
+                           _("Test the font size of a Text Box object."),
+                           _("The font size of _PARAM0_ is _PARAM1__PARAM2_"),
+                           _("Font"),
                            "res/conditions/characterSize24.png",
                            "res/conditions/characterSize.png")
                 .AddParameter("object", _("Object"), "TextBox", false)
@@ -270,7 +270,7 @@ public:
             /** Angle **/
 
             obj.AddAction("Angle",
-                           _("Angle"),
+                           _("Change the angle"),
                            _("Modify the angle of a Text Box object."),
                            _("Do _PARAM1__PARAM2_ to the angle of _PARAM0_"),
                            _("Rotation"),
@@ -282,7 +282,7 @@ public:
                 .codeExtraInformation.SetFunctionName("SetAngle").SetManipulatedType("number").SetAssociatedGetter("GetAngle").SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
             obj.AddCondition("Angle",
-                           _("Angle"),
+                           _("Test the angle"),
                            _("Test the value of the angle of a Text Box object."),
                            _("The angle of _PARAM0_ is _PARAM1__PARAM2_"),
                            _("Rotation"),

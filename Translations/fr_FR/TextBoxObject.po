@@ -1,0 +1,513 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Widgets - TextBoxObject\n"
+"POT-Creation-Date: 2013-09-09 21:52+0100\n"
+"PO-Revision-Date: 2013-09-09 21:53+0100\n"
+"Last-Translator: Victor Levasseur <victorlevasseur01@orange.fr>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: ./../..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: TextBoxObject\n"
+"X-Poedit-SearchPath-1: WidgetsCore\n"
+
+#: TextBoxObject/Extension.cpp:47
+msgid "Widgets - TextBox object"
+msgstr "Widgets - Objet zone de texte"
+
+#: TextBoxObject/Extension.cpp:48
+msgid ""
+"Part of the Widgets extension.\n"
+"Provides an object to allow the user to enter and edit a line of text."
+msgstr ""
+"Fait partie de l'extension Widgets.\n"
+"Fournit un objet permettant à l'utilisateur d'entrer et d'éditer une ligne "
+"de texte."
+
+#: TextBoxObject/Extension.cpp:56
+msgid "Text Box"
+msgstr "Zone de texte"
+
+#: TextBoxObject/Extension.cpp:57
+msgid "Allows the user to edit a text"
+msgstr "Permet à l'utilisateur d'éditer un texte"
+
+#: TextBoxObject/Extension.cpp:71
+msgid "Modify the text"
+msgstr "Modifier le texte"
+
+#: TextBoxObject/Extension.cpp:72
+msgid "Modify the text of a Text Box object."
+msgstr "Modifie le texte d'un objet zone de texte."
+
+#: TextBoxObject/Extension.cpp:73
+msgid "Do _PARAM1__PARAM2_ to the text of _PARAM0_"
+msgstr "Faire _PARAM1__PARAM2_ au texte de _PARAM0_"
+
+#: TextBoxObject/Extension.cpp:74 TextBoxObject/Extension.cpp:79
+#: TextBoxObject/Extension.cpp:86 TextBoxObject/Extension.cpp:94
+#: TextBoxObject/Extension.cpp:104 TextBoxObject/Extension.cpp:115
+#: TextBoxObject/Extension.cpp:123 TextBoxObject/Extension.cpp:133
+#: TextBoxObject/Extension.cpp:145 TextBoxObject/Extension.cpp:153
+#: TextBoxObject/TextBoxObjectEditor.cpp:94
+#: TextBoxObject/TextBoxObjectEditor.cpp:231
+msgid "Text"
+msgstr "Texte"
+
+#: TextBoxObject/Extension.cpp:77 TextBoxObject/Extension.cpp:89
+#: TextBoxObject/Extension.cpp:95 TextBoxObject/Extension.cpp:107
+#: TextBoxObject/Extension.cpp:118 TextBoxObject/Extension.cpp:124
+#: TextBoxObject/Extension.cpp:136 TextBoxObject/Extension.cpp:148
+#: TextBoxObject/Extension.cpp:154 TextBoxObject/Extension.cpp:166
+#: TextBoxObject/Extension.cpp:177 TextBoxObject/Extension.cpp:189
+#: TextBoxObject/Extension.cpp:195 TextBoxObject/Extension.cpp:207
+#: TextBoxObject/Extension.cpp:218 TextBoxObject/Extension.cpp:224
+#: TextBoxObject/Extension.cpp:228 TextBoxObject/Extension.cpp:240
+#: TextBoxObject/Extension.cpp:253 TextBoxObject/Extension.cpp:265
+#: TextBoxObject/Extension.cpp:279 TextBoxObject/Extension.cpp:291
+#: TextBoxObject/Extension.cpp:297
+msgid "Object"
+msgstr "Objet"
+
+#: TextBoxObject/Extension.cpp:78 TextBoxObject/Extension.cpp:137
+#: TextBoxObject/Extension.cpp:254 TextBoxObject/Extension.cpp:280
+msgid "Modification's sign"
+msgstr "Signe de modification"
+
+#: TextBoxObject/Extension.cpp:83
+msgid "Test the text"
+msgstr "Tester le texte"
+
+#: TextBoxObject/Extension.cpp:84
+msgid "Test the text of a Text Box object."
+msgstr "Teste le texte d'un objet zone de texte."
+
+#: TextBoxObject/Extension.cpp:85
+msgid "The text of _PARAM0_ is _PARAM1__PARAM2_"
+msgstr "Le texte de _PARAM0_ est _PARAM1__PARAM2_"
+
+#: TextBoxObject/Extension.cpp:90 TextBoxObject/Extension.cpp:119
+#: TextBoxObject/Extension.cpp:149 TextBoxObject/Extension.cpp:190
+#: TextBoxObject/Extension.cpp:266 TextBoxObject/Extension.cpp:292
+msgid "Sign of the test"
+msgstr "Signe du test"
+
+#: TextBoxObject/Extension.cpp:91 TextBoxObject/Extension.cpp:191
+msgid "Text to test"
+msgstr "Texte à tester"
+
+#: TextBoxObject/Extension.cpp:101
+msgid "Modify the hide character"
+msgstr "Modifier le caractère de masquage"
+
+#: TextBoxObject/Extension.cpp:102
+msgid ""
+"Modify the hide character (character hiding the text) of a Text Box object.\n"
+"Put an empty hide character to disable it."
+msgstr ""
+"Modifie le caractère masquant (caractère qui cache le contenu) d'un objet "
+"zone de texte.\n"
+"Mettre un caractère vide pour désactiver cette fonction."
+
+#: TextBoxObject/Extension.cpp:103
+msgid "Set _PARAM1_ as the hide character of _PARAM0_"
+msgstr "Mettre _PARAM1_ en caractère masquant de _PARAM0_"
+
+#: TextBoxObject/Extension.cpp:108 TextBoxObject/Extension.cpp:123
+#: TextBoxObject/TextBoxObject.cpp:526
+msgid "Hide character"
+msgstr "Caractère masquant"
+
+#: TextBoxObject/Extension.cpp:112
+msgid "Test the hide character"
+msgstr "Tester le caractère masquant"
+
+#: TextBoxObject/Extension.cpp:113
+msgid ""
+"Test the hide character (character hiding the text) of a Text Box object."
+msgstr ""
+"Teste le caractère masquant (caractère qui masque le contenu) d'un objet "
+"zone de texte."
+
+#: TextBoxObject/Extension.cpp:114
+msgid "The hide character of _PARAM0_ is _PARAM1__PARAM2_"
+msgstr "Le caractère masquant de _PARAM0_ est _PARAM1__PARAM2_"
+
+#: TextBoxObject/Extension.cpp:120
+msgid "Hide character to test"
+msgstr "Caractère à tester"
+
+#: TextBoxObject/Extension.cpp:123
+msgid "Hide character (character hiding the string in the Text Box)"
+msgstr "Caractère masquant (caractère masquant le contenu d'une zone de texte)"
+
+#: TextBoxObject/Extension.cpp:130
+msgid "Modify the placeholder"
+msgstr "Modifier le texte d'indication"
+
+#: TextBoxObject/Extension.cpp:131
+msgid ""
+"Modify the placeholder (text shown when there is no text) of a Text Box "
+"object."
+msgstr ""
+"Modifie le texte d'indication (texte affiché quand la zone de texte est "
+"vide) d'un objet zone de texte."
+
+#: TextBoxObject/Extension.cpp:132
+msgid "Do _PARAM1__PARAM2_ to the placeholder of _PARAM0_"
+msgstr "Faire _PARAM1__PARAM2_ au texte d'indication de _PARAM0_"
+
+#: TextBoxObject/Extension.cpp:138 TextBoxObject/Extension.cpp:153
+#: TextBoxObject/TextBoxObject.cpp:530
+#: TextBoxObject/TextBoxObjectEditor.cpp:232
+msgid "Placeholder"
+msgstr "Texte d'indication"
+
+#: TextBoxObject/Extension.cpp:142
+msgid "Test the placeholder"
+msgstr "Tester le texte d'indication"
+
+#: TextBoxObject/Extension.cpp:143
+msgid ""
+"Test the placeholder (text shown when there is no text) of a Text Box object."
+msgstr ""
+"Teste le texte d'indication (texte affiché quand la zone de texte est vide) "
+"d'un objet zone de texte."
+
+#: TextBoxObject/Extension.cpp:144
+msgid "The placeholder of _PARAM0_ is _PARAM1__PARAM2_"
+msgstr "Le texte d'indication de _PARAM0_ is _PARAM1__PARAM2_"
+
+#: TextBoxObject/Extension.cpp:150
+msgid "Placeholder to test"
+msgstr "Texte d'indication à tester"
+
+#: TextBoxObject/Extension.cpp:153
+msgid "Placeholder (text shown when the Text Box is empty)"
+msgstr "Texte d'indication (texte affiché quand la zone de texte est vide)"
+
+#: TextBoxObject/Extension.cpp:160
+msgid "Enable or disable the text selection"
+msgstr "(Dés)activer la sélection de texte"
+
+#: TextBoxObject/Extension.cpp:161
+msgid ""
+"Enable or disable the text selection.\n"
+"If disabled, you can move the cursor but can't select a text by dragging."
+msgstr ""
+"(Dés)active la selection de texte.\n"
+"Si elle est désactivée, vous pouvez déplacer le curseur mais pas "
+"sélectionner une texte en glissant la souris."
+
+#: TextBoxObject/Extension.cpp:162
+msgid "Enable the text selection of _PARAM0_ ? _PARAM1_"
+msgstr "Activer la sélection de texte de _PARAM0_ ? _PARAM1_"
+
+#: TextBoxObject/Extension.cpp:163 TextBoxObject/Extension.cpp:174
+#: TextBoxObject/Extension.cpp:186 TextBoxObject/Extension.cpp:194
+#: TextBoxObject/Extension.cpp:204 TextBoxObject/Extension.cpp:215
+#: TextBoxObject/Extension.cpp:223 TextBoxObject/Extension.cpp:227
+msgid "Selection/Cursor"
+msgstr "Sélection/Curseur"
+
+#: TextBoxObject/Extension.cpp:167
+msgid "Enable ?"
+msgstr "Activer ?"
+
+#: TextBoxObject/Extension.cpp:171 TextBoxObject/Extension.cpp:172
+msgid "Test if the text selection is enabled"
+msgstr "Tester si la sélection de texte est activée"
+
+#: TextBoxObject/Extension.cpp:173
+msgid "The text selection of _PARAM0_ is enabled"
+msgstr "La sélection de texte de _PARAM0_ is activée"
+
+#: TextBoxObject/Extension.cpp:183
+msgid "Test the selected text"
+msgstr "Tester le texte sélectionné"
+
+#: TextBoxObject/Extension.cpp:184
+msgid "Test the selected text of a Text Box object."
+msgstr "Teste le texte sélectionné d'un objet zone de texte."
+
+#: TextBoxObject/Extension.cpp:185
+msgid "The selected text of _PARAM0_ is _PARAM1__PARAM2_"
+msgstr "Le texte sélectionné de _PARAM0_ est _PARAM1__PARAM2_"
+
+#: TextBoxObject/Extension.cpp:194
+msgid "Selected text"
+msgstr "Texte sélectionné"
+
+#: TextBoxObject/Extension.cpp:201
+msgid "Move the cursor"
+msgstr "Déplacer le curseur"
+
+#: TextBoxObject/Extension.cpp:202
+msgid "Move the cursor at a specific position."
+msgstr "Déplace le curseur à une position précise."
+
+#: TextBoxObject/Extension.cpp:203
+msgid "Move the cursor of _PARAM0_ to _PARAM1_"
+msgstr "Déplacer le curseur de _PARAM0_ à _PARAM1_"
+
+#: TextBoxObject/Extension.cpp:208
+msgid "Position"
+msgstr "Position"
+
+#: TextBoxObject/Extension.cpp:212
+msgid "Change the selection position"
+msgstr "Changer la position de la sélection"
+
+#: TextBoxObject/Extension.cpp:213
+msgid "Change the selection position (beginning and ending)."
+msgstr "Change la position de la sélection (début et fin)"
+
+#: TextBoxObject/Extension.cpp:214
+msgid "Set the selection of _PARAM0_ from _PARAM1_ to _PARAM2_"
+msgstr "Mettre la sélection de _PARAM0_ à partir de _PARAM1_ jusqu'à _PARAM2_"
+
+#: TextBoxObject/Extension.cpp:219
+msgid "Begin position"
+msgstr "Position de début"
+
+#: TextBoxObject/Extension.cpp:220
+msgid "End position"
+msgstr "Position de fin"
+
+#: TextBoxObject/Extension.cpp:223
+msgid "Selection begin"
+msgstr "Début de la sélection"
+
+#: TextBoxObject/Extension.cpp:223
+msgid "Selected begin position"
+msgstr "Position du début de la sélection"
+
+#: TextBoxObject/Extension.cpp:227
+msgid "Selection end"
+msgstr "Fin de la sélection"
+
+#: TextBoxObject/Extension.cpp:227
+msgid "Selected end position"
+msgstr "Position de fin de la sélection"
+
+#: TextBoxObject/Extension.cpp:234
+msgid "Modify the text font"
+msgstr "Modifier la police du texte"
+
+#: TextBoxObject/Extension.cpp:235
+msgid "Modify the text font of a Text Box object."
+msgstr "Modifie la police du texte de l'objet zone de texte."
+
+#: TextBoxObject/Extension.cpp:236
+msgid "Change text font of _PARAM0_ to _PARAM1_"
+msgstr "Changer la police de _PARAM0_ en _PARAM1_"
+
+#: TextBoxObject/Extension.cpp:237 TextBoxObject/Extension.cpp:241
+#: TextBoxObject/Extension.cpp:250 TextBoxObject/Extension.cpp:262
+msgid "Font"
+msgstr "Police"
+
+#: TextBoxObject/Extension.cpp:247
+msgid "Change the font size"
+msgstr "Changer la taille de police"
+
+#: TextBoxObject/Extension.cpp:248
+msgid "Modify the font size of a Text Box object."
+msgstr "Modifie la taille de police d'un objet zone de texte."
+
+#: TextBoxObject/Extension.cpp:249
+msgid "Do _PARAM1__PARAM2_ to the font size of _PARAM0_"
+msgstr "Faire _PARAM1__PARAM2_ à la taille de police de _PARAM0_"
+
+#: TextBoxObject/Extension.cpp:255 TextBoxObject/Extension.cpp:281
+msgid "Value"
+msgstr "Valeur"
+
+#: TextBoxObject/Extension.cpp:259
+msgid "Test the font size"
+msgstr "Tester la taille de police"
+
+#: TextBoxObject/Extension.cpp:260
+msgid "Test the font size of a Text Box object."
+msgstr "Teste la taille de police d'un objet zone de texte."
+
+#: TextBoxObject/Extension.cpp:261
+msgid "The font size of _PARAM0_ is _PARAM1__PARAM2_"
+msgstr "Le taille de police de _PARAM0_ est _PARAM1__PARAM2_"
+
+#: TextBoxObject/Extension.cpp:267
+msgid "Size to test"
+msgstr "Taille à tester"
+
+#: TextBoxObject/Extension.cpp:273
+msgid "Change the angle"
+msgstr "Changer l'angle"
+
+#: TextBoxObject/Extension.cpp:274
+msgid "Modify the angle of a Text Box object."
+msgstr "Modifier l'angle d'un objet zone de texte."
+
+#: TextBoxObject/Extension.cpp:275
+msgid "Do _PARAM1__PARAM2_ to the angle of _PARAM0_"
+msgstr "Faire _PARAM1__PARAM2_ à l'angle de _PARAM0_"
+
+#: TextBoxObject/Extension.cpp:276 TextBoxObject/Extension.cpp:288
+#: TextBoxObject/Extension.cpp:296
+msgid "Rotation"
+msgstr "Rotation"
+
+#: TextBoxObject/Extension.cpp:285
+msgid "Test the angle"
+msgstr "Tester l'angle"
+
+#: TextBoxObject/Extension.cpp:286
+msgid "Test the value of the angle of a Text Box object."
+msgstr "Teste la valeur de l'angle d'un objet zone de texte."
+
+#: TextBoxObject/Extension.cpp:287
+msgid "The angle of _PARAM0_ is _PARAM1__PARAM2_"
+msgstr "L'angle de _PARAM0_ est _PARAM1__PARAM2_"
+
+#: TextBoxObject/Extension.cpp:293
+msgid "Value to test"
+msgstr "Valeur à tester"
+
+#: TextBoxObject/Extension.cpp:296
+msgid "Angle"
+msgstr "Angle"
+
+#: TextBoxObject/TextBoxObject.cpp:522
+msgid "String"
+msgstr "Texte"
+
+#: TextBoxObject/TextBoxObject.cpp:534
+msgid "Character size"
+msgstr "Taille de police"
+
+#: TextBoxObject/TextBoxObjectEditor.cpp:90
+msgid "Edit the TextBox object"
+msgstr "Editer l'objet Zone de Texte"
+
+#: TextBoxObject/TextBoxObjectEditor.cpp:99
+msgid "Allow text selection"
+msgstr "Autoriser la sélection de texte"
+
+#: TextBoxObject/TextBoxObjectEditor.cpp:104
+msgid "Hide character :"
+msgstr "Caractère masquant : "
+
+#: TextBoxObject/TextBoxObjectEditor.cpp:106
+#: TextBoxObject/TextBoxObjectEditor.cpp:111
+msgid ""
+"The hide character is a character that hide real\n"
+"characters to be shown in the text box\n"
+"(for a password for example)."
+msgstr ""
+"The caractère masquant est un caractère qui masque\n"
+"le vrai contenu de la zone de texte.\n"
+"(pour masquer un mot de passe par exemple)."
+
+#: TextBoxObject/TextBoxObjectEditor.cpp:113
+msgid "Placeholder :"
+msgstr "Texte d'indication : "
+
+#: TextBoxObject/TextBoxObjectEditor.cpp:116
+msgid ""
+"The placeholder is a text shown when the text box\n"
+"is empty and doesn't have the focus to give an indication."
+msgstr ""
+"Le texte d'indication est un texte affiché quand la zone de\n"
+"texte est vide et n'a pas le focus (état normal) pour donner une\n"
+"indication."
+
+#: TextBoxObject/TextBoxObjectEditor.cpp:121
+msgid "Others properties"
+msgstr "Autres propriétés"
+
+#: TextBoxObject/TextBoxObjectEditor.cpp:125
+msgid "Edit the color palette"
+msgstr "Editer la palette de couleur"
+
+#: TextBoxObject/TextBoxObjectEditor.cpp:127
+msgid "Border thickness :"
+msgstr "Epaisseur de la bordure :"
+
+#: TextBoxObject/TextBoxObjectEditor.cpp:132
+msgid "Font :"
+msgstr "Police :"
+
+#: TextBoxObject/TextBoxObjectEditor.cpp:138
+msgid "Choose the font"
+msgstr "Choisir la police"
+
+#: TextBoxObject/TextBoxObjectEditor.cpp:141
+msgid "Size :"
+msgstr "Taille de la police :"
+
+#: TextBoxObject/TextBoxObjectEditor.cpp:154
+#: WidgetsCore/src/PaletteEditor.cpp:61
+msgid "Ok"
+msgstr "Ok"
+
+#: TextBoxObject/TextBoxObjectEditor.cpp:156
+#: WidgetsCore/src/PaletteEditor.cpp:63
+msgid "Cancel"
+msgstr "Annuler"
+
+#: TextBoxObject/TextBoxObjectEditor.cpp:233
+msgid "Background"
+msgstr "Arrière-plan"
+
+#: TextBoxObject/TextBoxObjectEditor.cpp:234
+msgid "Border"
+msgstr "Bordure"
+
+#: TextBoxObject/TextBoxObjectEditor.cpp:235
+msgid "Selection"
+msgstr "Sélection"
+
+#: TextBoxObject/TextBoxObjectEditor.cpp:248
+msgid "Choose a font ( ttf/ttc files )"
+msgstr "Choisissez une police (fichiers ttf/ttc)"
+
+#: WidgetsCore/src/PaletteEditor.cpp:42
+msgid "Edit the palette"
+msgstr "Editer la palette de couleur"
+
+#: WidgetsCore/src/PaletteEditor.cpp:100
+msgid "Disabled"
+msgstr "Désactivé"
+
+#: WidgetsCore/src/PaletteEditor.cpp:103
+msgid "Enabled"
+msgstr "Activé"
+
+#: WidgetsCore/src/PaletteEditor.cpp:106
+msgid "Hovered"
+msgstr "Survolé"
+
+#: WidgetsCore/src/PaletteEditor.cpp:109
+msgid "Focused"
+msgstr "Avec le focus"
+
+#: WidgetsCore/src/PaletteEditor.cpp:112
+msgid "Focused and hovered"
+msgstr "Avec le focus et survolé"
+
+#: WidgetsCore/src/PaletteEditor.cpp:115
+msgid "Color"
+msgstr "Couleur"
+
+#~ msgid "Size"
+#~ msgstr "Taille"
+
+#~ msgid "Modify the font of the text."
+#~ msgstr "Modifier la police"
+
+#~ msgid "Hide Character"
+#~ msgstr "Caractère masquant"
