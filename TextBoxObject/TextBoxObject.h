@@ -150,6 +150,12 @@ public :
     void AllowTextSelection(bool allow);
     bool IsAllowingTextSelection() const;
 
+    void Enable(bool enable);
+    bool IsEnabled() const;
+
+    void SetReadOnly(bool readonly);
+    bool IsReadOnly() const;
+
     void SetHideCharacter(const std::string &character);
     std::string GetHideCharacter() const;
 

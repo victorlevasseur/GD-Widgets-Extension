@@ -40,6 +40,9 @@ public:
     void AllowTextSelection(bool allow = true);
     bool IsAllowingTextSelection() const;
 
+    void SetReadOnly(bool readonly = true);
+    bool IsReadOnly() const;
+
     /// 0 to disable this feature
     void SetHideCharacter(sf::Uint32 character);
     sf::Uint32 GetHideCharacter() const;
@@ -83,6 +86,8 @@ private:
     int m_selectionBegin;
     int m_selectionEnd;
     bool m_allowTextSelection;
+    bool m_readonly;
+
     float m_cursorTimer;
 
     struct

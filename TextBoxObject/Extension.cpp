@@ -68,7 +68,7 @@ public:
             /** String **/
 
             obj.AddAction("String",
-                           _("Modify the text"),
+                           _("Text"),
                            _("Modify the text of a Text Box object."),
                            _("Do _PARAM1__PARAM2_ to the text of _PARAM0_"),
                            _("Text"),
@@ -80,7 +80,7 @@ public:
                 .codeExtraInformation.SetFunctionName("SetString").SetManipulatedType("string").SetAssociatedGetter("GetString").SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
             obj.AddCondition("String",
-                           _("Test the text"),
+                           _("Text"),
                            _("Test the text of a Text Box object."),
                            _("The text of _PARAM0_ is _PARAM1__PARAM2_"),
                            _("Text"),
@@ -98,7 +98,7 @@ public:
             /** Hide Character **/
 
             obj.AddAction("HideCharacter",
-                           _("Modify the hide character"),
+                           _("Hide Character"),
                            _("Modify the hide character (character hiding the text) of a Text Box object.\nPut an empty hide character to disable it."),
                            _("Set _PARAM1_ as the hide character of _PARAM0_"),
                            _("Text"),
@@ -109,7 +109,7 @@ public:
                 .codeExtraInformation.SetFunctionName("SetHideCharacter").SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
             obj.AddCondition("HideCharacter",
-                           _("Test the hide character"),
+                           _("Hide Character"),
                            _("Test the hide character (character hiding the text) of a Text Box object."),
                            _("The hide character of _PARAM0_ is _PARAM1__PARAM2_"),
                            _("Text"),
@@ -127,7 +127,7 @@ public:
             /** Placeholder **/
 
             obj.AddAction("Placeholder",
-                           _("Modify the placeholder"),
+                           _("Placeholder"),
                            _("Modify the placeholder (text shown when there is no text) of a Text Box object."),
                            _("Do _PARAM1__PARAM2_ to the placeholder of _PARAM0_"),
                            _("Text"),
@@ -139,7 +139,7 @@ public:
                 .codeExtraInformation.SetFunctionName("SetPlaceholder").SetManipulatedType("string").SetAssociatedGetter("GetPlaceholder").SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
             obj.AddCondition("Placeholder",
-                           _("Test the placeholder"),
+                           _("Placeholder"),
                            _("Test the placeholder (text shown when there is no text) of a Text Box object."),
                            _("The placeholder of _PARAM0_ is _PARAM1__PARAM2_"),
                            _("Text"),
@@ -157,7 +157,7 @@ public:
             /** Allow Text Selection **/
 
             obj.AddAction("AllowTextSelection",
-                           _("Enable or disable the text selection"),
+                           _("Enable/disable text selection"),
                            _("Enable or disable the text selection.\nIf disabled, you can move the cursor but can't select a text by dragging."),
                            _("Enable the text selection of _PARAM0_ ? _PARAM1_"),
                            _("Selection/Cursor"),
@@ -168,7 +168,7 @@ public:
                 .codeExtraInformation.SetFunctionName("AllowTextSelection").SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
             obj.AddCondition("AllowTextSelection",
-                           _("Test if the text selection is enabled"),
+                           _("Text selection enabled"),
                            _("Test if the text selection is enabled"),
                            _("The text selection of _PARAM0_ is enabled"),
                            _("Selection/Cursor"),
@@ -177,10 +177,56 @@ public:
                 .AddParameter("object", _("Object"), "TextBox", false)
                 .codeExtraInformation.SetFunctionName("IsAllowingTextSelection").SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
+            /** Enable/Disable **/
+
+            obj.AddAction("Enable",
+                           _("Enable/Disable"),
+                           _("Enable or disable the text box object."),
+                           _("Enable _PARAM0_ ? _PARAM1_"),
+                           _("State"),
+                           "res/actions/text24.png",
+                           "res/actions/text.png")
+                .AddParameter("object", _("Object"), "TextBox", false)
+                .AddParameter("yesorno", _("Enable ?"))
+                .codeExtraInformation.SetFunctionName("Enable").SetIncludeFile("TextBoxObject/TextBoxObject.h");
+
+            obj.AddCondition("IsEnabled",
+                           _("Enabled"),
+                           _("Test if the text object is enabled"),
+                           _("_PARAM0_ is enabled"),
+                           _("State"),
+                           "res/conditions/text24.png",
+                           "res/conditions/text.png")
+                .AddParameter("object", _("Object"), "TextBox", false)
+                .codeExtraInformation.SetFunctionName("IsEnabled").SetIncludeFile("TextBoxObject/TextBoxObject.h");
+
+            /** Read-only **/
+
+            obj.AddAction("ReadOnly",
+                           _("Read-only"),
+                           _("Set if the user can edit the text (read-only)."),
+                           _("Set _PARAM0_ read-only ? _PARAM1_"),
+                           _("State"),
+                           "res/actions/text24.png",
+                           "res/actions/text.png")
+                .AddParameter("object", _("Object"), "TextBox", false)
+                .AddParameter("yesorno", _("Enable ?"))
+                .codeExtraInformation.SetFunctionName("SetReadOnly").SetIncludeFile("TextBoxObject/TextBoxObject.h");
+
+            obj.AddCondition("IsReadOnly",
+                           _("Read-only"),
+                           _("Test if the text can be edited by the user."),
+                           _("_PARAM0_ is read-only"),
+                           _("State"),
+                           "res/conditions/text24.png",
+                           "res/conditions/text.png")
+                .AddParameter("object", _("Object"), "TextBox", false)
+                .codeExtraInformation.SetFunctionName("IsReadOnly").SetIncludeFile("TextBoxObject/TextBoxObject.h");
+
             /** Selected String **/
 
             obj.AddCondition("SelectedString",
-                           _("Test the selected text"),
+                           _("Selected text"),
                            _("Test the selected text of a Text Box object."),
                            _("The selected text of _PARAM0_ is _PARAM1__PARAM2_"),
                            _("Selection/Cursor"),
@@ -231,8 +277,8 @@ public:
             /** Font **/
 
             obj.AddAction("Font",
-                           _("Modify the text font"),
-                           _("Modify the text font of a Text Box object."),
+                           _("Font"),
+                           _("Modify the font of a Text Box object."),
                            _("Change text font of _PARAM0_ to _PARAM1_"),
                            _("Font"),
                            "res/actions/font24.png",
@@ -244,7 +290,7 @@ public:
             /** Character size **/
 
             obj.AddAction("Size",
-                           _("Change the font size"),
+                           _("Font size"),
                            _("Modify the font size of a Text Box object."),
                            _("Do _PARAM1__PARAM2_ to the font size of _PARAM0_"),
                            _("Font"),
@@ -256,7 +302,7 @@ public:
                 .codeExtraInformation.SetFunctionName("SetCharacterSize").SetManipulatedType("number").SetAssociatedGetter("GetCharacterSize").SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
             obj.AddCondition("Size",
-                           _("Test the font size"),
+                           _("Font size"),
                            _("Test the font size of a Text Box object."),
                            _("The font size of _PARAM0_ is _PARAM1__PARAM2_"),
                            _("Font"),
@@ -270,7 +316,7 @@ public:
             /** Angle **/
 
             obj.AddAction("Angle",
-                           _("Change the angle"),
+                           _("Angle"),
                            _("Modify the angle of a Text Box object."),
                            _("Do _PARAM1__PARAM2_ to the angle of _PARAM0_"),
                            _("Rotation"),
@@ -282,7 +328,7 @@ public:
                 .codeExtraInformation.SetFunctionName("SetAngle").SetManipulatedType("number").SetAssociatedGetter("GetAngle").SetIncludeFile("TextBoxObject/TextBoxObject.h");
 
             obj.AddCondition("Angle",
-                           _("Test the angle"),
+                           _("Angle"),
                            _("Test the value of the angle of a Text Box object."),
                            _("The angle of _PARAM0_ is _PARAM1__PARAM2_"),
                            _("Rotation"),

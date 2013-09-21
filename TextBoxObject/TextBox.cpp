@@ -216,6 +216,16 @@ bool TextBox::IsAllowingTextSelection() const
     return m_allowTextSelection;
 }
 
+void TextBox::SetReadOnly(bool readonly)
+{
+    m_readonly = readonly;
+}
+
+bool TextBox::IsReadOnly() const
+{
+    return m_readonly;
+}
+
 void TextBox::SetHideCharacter(sf::Uint32 character)
 {
     m_hideChar = character;
@@ -253,7 +263,7 @@ void TextBox::HandleKeyboardEvent(sf::Keyboard::Key button, bool pressed)
         {
             Select(GetSelectionEnd() + 1);
         }
-        else if(button == sf::Keyboard::BackSpace)
+        else if(button == sf::Keyboard::BackSpace && !m_readonly)
         {
             if(GetSelectionBegin() == GetSelectionEnd())
             {
@@ -272,7 +282,7 @@ void TextBox::HandleKeyboardEvent(sf::Keyboard::Key button, bool pressed)
             ComputeVisibleString();
             ComputeCursorPosition();
         }
-        else if(button == sf::Keyboard::Delete)
+        else if(button == sf::Keyboard::Delete && !m_readonly)
         {
             if(GetSelectionBegin() == GetSelectionEnd())
             {
@@ -360,7 +370,7 @@ void TextBox::HandleMouseButtonEvent(sf::Mouse::Button button, bool pressed, int
 
 void TextBox::HandleTextEntered(sf::Uint32 character)
 {
-    if(!m_focus || !m_enabled)
+    if(!m_focus || !m_enabled || m_readonly)
         return;
 
     if(character > 0x1f && character != 0x7f)

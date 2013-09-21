@@ -480,6 +480,29 @@ bool RuntimeTextBoxObject::IsAllowingTextSelection() const
     return m_textBox.IsAllowingTextSelection();
 }
 
+void RuntimeTextBoxObject::Enable(bool enable)
+{
+    if(enable)
+        m_textBox.Enable();
+    else
+        m_textBox.Disable();
+}
+
+bool RuntimeTextBoxObject::IsEnabled() const
+{
+    return m_textBox.IsEnabled();
+}
+
+void RuntimeTextBoxObject::SetReadOnly(bool readonly)
+{
+    m_textBox.SetReadOnly(readonly);
+}
+
+bool RuntimeTextBoxObject::IsReadOnly() const
+{
+    return m_textBox.IsReadOnly();
+}
+
 void RuntimeTextBoxObject::SetHideCharacter(const std::string &character)
 {
     sf::String hideCharStr(character);
@@ -491,7 +514,6 @@ void RuntimeTextBoxObject::SetHideCharacter(const std::string &character)
     {
         m_textBox.SetHideCharacter(hideCharStr[0]);
     }
-
 }
 
 std::string RuntimeTextBoxObject::GetHideCharacter() const
