@@ -6,8 +6,10 @@
 #include <SFML/Graphics/Text.hpp>
 #include <SFML/System/Clock.hpp>
 
+namespace WCore
+{
 
-class GD_EXTENSION_API TextBox : public WCore::Widget
+class WIDGETS_CORE_API TextBox : public Widget
 {
 public:
     TextBox();
@@ -107,5 +109,6 @@ private:
     sf::RectangleShape m_cursorShape;
 };
 
+}
 
 #endif

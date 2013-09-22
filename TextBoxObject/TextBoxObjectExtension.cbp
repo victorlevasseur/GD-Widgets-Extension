@@ -565,8 +565,6 @@
 			<Add directory="../../ExtLibs/SFML/build-mingw-release/lib" />
 		</Linker>
 		<Unit filename="Extension.cpp" />
-		<Unit filename="TextBox.cpp" />
-		<Unit filename="TextBox.h" />
 		<Unit filename="TextBoxObject.cpp" />
 		<Unit filename="TextBoxObject.h" />
 		<Unit filename="TextBoxObjectEditor.cpp" />

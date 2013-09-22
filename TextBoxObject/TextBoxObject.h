@@ -31,7 +31,7 @@ freely, subject to the following restrictions:
 #include "GDCpp/Object.h"
 #include "GDCpp/RuntimeObject.h"
 
-#include "TextBox.h"
+#include "WidgetsCore/TextBox.h"
 #include "WidgetsCore/Palette.h"
 
 class ImageManager;
@@ -100,7 +100,7 @@ private:
     virtual void DoSaveToXml(TiXmlElement * elemScene);
     #endif
 
-    TextBox m_textBox;
+    WCore::TextBox m_textBox;
     std::string fontName;
 };
 
@@ -173,7 +173,7 @@ public :
     #endif
 
 private:
-    TextBox m_textBox;
+    WCore::TextBox m_textBox;
     std::string fontName;
 
     const RuntimeScene *m_scene;

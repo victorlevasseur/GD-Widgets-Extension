@@ -37,12 +37,14 @@
 		<Unit filename="include/WidgetsCore/Palette.h" />
 		<Unit filename="include/WidgetsCore/PaletteEditor.h" />
 		<Unit filename="include/WidgetsCore/PaletteSerialization.h" />
+		<Unit filename="include/WidgetsCore/TextBox.h" />
 		<Unit filename="include/WidgetsCore/Widget.h" />
 		<Unit filename="src/CameraTools.cpp" />
 		<Unit filename="src/ColorTools.cpp" />
 		<Unit filename="src/Palette.cpp" />
 		<Unit filename="src/PaletteEditor.cpp" />
 		<Unit filename="src/PaletteSerialization.cpp" />
+		<Unit filename="src/TextBox.cpp" />
 		<Unit filename="src/Widget.cpp" />
 		<Unit filename="wxsmith/PaletteEditor.wxs" />
 		<Extensions>

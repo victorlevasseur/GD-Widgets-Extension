@@ -1,13 +1,15 @@
-#include "TextBox.h"
+#include "WidgetsCore/TextBox.h"
 
 #include <iostream>
 #include <algorithm>
 #include <SFML/Graphics/VertexArray.hpp>
 #include <SFML/Window/Mouse.hpp>
 
+namespace WCore
+{
 
 TextBox::TextBox() :
-    WCore::Widget(),
+    Widget(),
     m_backgroundShape(),
     m_string(""),
     m_text(),
@@ -597,4 +599,6 @@ void TextBox::UpdateSelectionDrawable()
 void TextBox::ResetCursorTimer()
 {
     m_cursorTimer = 0;
+}
+
 }
