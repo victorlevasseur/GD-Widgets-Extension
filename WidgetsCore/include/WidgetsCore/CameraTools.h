@@ -5,6 +5,7 @@
 
 #include "GDCpp/RuntimeLayer.h"
 #include "GDCpp/RuntimeScene.h"
+#include "GDCpp/RuntimeGame.h"
 
 namespace WCore
 {
